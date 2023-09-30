@@ -22,16 +22,14 @@ public class Spell
 
     public virtual void StartCast(Combatant caster, Combatant target, IntVec2 pos)
     {
-        foreach (var it in Footprint.Select(it => pos + it))
-        {
-            if (caster.Grid.IsCellInBounds(it)) caster.Grid.CellsUsed[it.x, it.y] = true;
-        }
-
         caster.SP -= SPCost;
     }
 
     public virtual void FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
     {
-
+        foreach (var it in Footprint.Select(it => pos + it))
+        {
+            if (caster.Grid.IsCellInBounds(it)) caster.Grid.CellsUsed[it.x, it.y] = true;
+        }
     }
 }
