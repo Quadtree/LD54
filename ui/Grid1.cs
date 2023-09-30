@@ -24,6 +24,7 @@ public class Grid1 : GridContainer
     HoverType[,] CellHovers;
 
     public IntVec2? CurrentHover;
+    Vector2 LastMouseHoverPos;
 
     public override void _Ready()
     {
@@ -34,6 +35,11 @@ public class Grid1 : GridContainer
     public override void _Process(float delta)
     {
         var grid = Src();
+
+        if (GetViewport().GetMousePosition() != LastMouseHoverPos)
+        {
+            CurrentHover = null;
+        }
 
         if (!Initialized && grid != null)
         {
@@ -98,6 +104,8 @@ public class Grid1 : GridContainer
                 }
             }
         }
+
+        GD.Print(CurrentHover);
     }
 
     public void GridCellGUIInput(InputEvent evt, int x, int y)
@@ -111,11 +119,10 @@ public class Grid1 : GridContainer
             }
         }
 
-        if (evt is InputEventMouseMotion mtn)
+        if (evt is InputEventMouse)
         {
-
+            CurrentHover = new IntVec2(x, y);
+            LastMouseHoverPos = GetViewport().GetMousePosition();
         }
-
-        CurrentHover = new IntVec2(x, y);
     }
 }
