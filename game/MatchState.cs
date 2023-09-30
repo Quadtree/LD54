@@ -21,4 +21,11 @@ public class MatchState
 
         spell.Cast(Combatants[casterId], Combatants[targetId], cell);
     }
+
+    public void EndTurn()
+    {
+        CurrentTurn = (CurrentTurn + 1) % 2;
+        GD.Print($"Now turn for player {CurrentTurn}");
+        Combatants[CurrentTurn].SP += 2;
+    }
 }

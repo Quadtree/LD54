@@ -35,6 +35,11 @@ public class Default : Node2D
                 GD.Print($"Spell {SelectedSpell.Name} selected");
             }
         }
+
+        if (Input.IsActionJustPressed("end_turn"))
+        {
+            MS.EndTurn();
+        }
     }
 
 
