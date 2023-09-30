@@ -41,6 +41,8 @@ public class MatchState
         if (spell == null) { GD.Print("No spell selected!"); return; }
         if (!spell.IsValidForCaster(Combatants[casterId])) { GD.Print("Not enough SP!"); return; }
         if (!spell.IsValidAtPoint(cell, Combatants[casterId].Grid)) { GD.Print("Not a valid target"); return; }
+        if (spell.IsReaction && CurrentPhase != Phase.Reaction) { GD.Print("Incorrect phase"); return; }
+        if (!spell.IsReaction && CurrentPhase != Phase.Main) { GD.Print("Incorrect phase"); return; }
 
         spell.StartCast(Combatants[casterId], Combatants[targetId], cell);
 
