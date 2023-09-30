@@ -39,4 +39,6 @@ All spells have some potential traits like:
 # Names
 "Spellfire"
 
+# Graphics
+We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on my 4K screen.
 
