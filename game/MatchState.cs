@@ -46,6 +46,7 @@ public class MatchState
         if (CurrentPhase == Phase.Reaction)
         {
             foreach (var it in PendingSpells) it.Item1.FinishCasting(Combatants[CurrentTurn], Combatants[1 - CurrentTurn], it.Item2);
+            PendingSpells.Clear();
 
             Util.ZeroMemory(Combatants[CurrentTurn].Grid.ImminentSpells);
 
