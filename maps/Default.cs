@@ -10,7 +10,8 @@ public class Default : Node2D
     Spell SelectedSpell;
 
     public static Spell[] PossibleSpells = new Spell[]{
-        new BurningBolt()
+        new FlameWave(),
+        new BurningBolt(),
     };
 
     CombatantStatus[] CS;
