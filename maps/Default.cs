@@ -60,6 +60,8 @@ public class Default : Node2D
 
         this.FindChildByName<Label>("TurnStatusLabel").Text = $"{MS.CurrentTurn} / {MS.CurrentPhase}";
 
+        this.FindChildByName<Label>("IncomingSpellsLabel").Text = $"Incoming: {string.Join(", ", MS.PendingSpells.Select(it => $"{it.Item1.Name}>{it.Item2}"))}";
+
         // stop the player from doing anything if it's not their turn
         if (!IsCurrentlyPlayersTurn) return;
 
