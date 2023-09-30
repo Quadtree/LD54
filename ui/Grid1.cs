@@ -73,7 +73,15 @@ public class Grid1 : GridContainer
             {
                 for (var x = 0; x < grid.Width; ++x)
                 {
-
+                    if (!grid.CellsAvailable[x,y])
+                    {
+                        Cells[x,y].Visible = false;
+                    }
+                    else
+                    {
+                        Cells[x,y].Visible = true;
+                        if (CellHovers[x,y] == HoverType.SpellBase && )
+                    }
                 }
             }
         }
