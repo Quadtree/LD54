@@ -23,6 +23,8 @@ public class Grid1 : GridContainer
     TextureRect[,] Cells;
     HoverType[,] CellHovers;
 
+    public IntVec2? CurrentHover;
+
     public override void _Ready()
     {
         Template = this.FindChildByName<TextureRect>("Template");
@@ -110,5 +112,12 @@ public class Grid1 : GridContainer
             }
         }
 
+        if (evt is InputEventMouseMotion)
+        {
+            var mtn = (InputEventMouseMotion)evt;
+            
+        }
+
+        CurrentHover = new IntVec2(x, y);
     }
 }
