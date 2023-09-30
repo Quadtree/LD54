@@ -19,4 +19,14 @@ public class Spell
     {
         return comb.SP >= SPCost;
     }
+
+    public virtual void Cast(Combatant caster, Combatant target, IntVec2 pos)
+    {
+        foreach (var it in Footprint.Select(it => pos + it))
+        {
+            caster.Grid.CellsUsed[it.x, it.y] = true;
+        }
+
+        caster.SP -= SPCost;
+    }
 }
