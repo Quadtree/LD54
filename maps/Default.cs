@@ -8,7 +8,7 @@ public class Default : Node2D
 
     Spell SelectedSpell;
 
-    Spell[] PossibleSpells = new Spell[]{
+    public static Spell[] PossibleSpells = new Spell[]{
         new BurningBolt()
     };
 

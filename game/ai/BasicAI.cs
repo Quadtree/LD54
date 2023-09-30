@@ -12,6 +12,14 @@ public class BasicAI
                 Util.RandInt(0, ms.Combatants[myId].Grid.Width),
                 Util.RandInt(0, ms.Combatants[myId].Grid.Height)
             );
+
+            var spell = Util.Choice(Default.PossibleSpells);
+
+            ms.TryCastSpell(spell, myId, opoId, trgPos);
+
+            yield return false;
         }
+
+        yield return true;
     }
 }
