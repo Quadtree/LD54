@@ -18,6 +18,8 @@ public class MatchState
 
     public List<Tuple<Spell, IntVec2>> PendingSpells = new List<Tuple<Spell, IntVec2>>();
 
+    public List<Action> ChangeListeners = new List<Action>();
+
     public void StartGame()
     {
         Combatants[0].SP += 1;
@@ -71,11 +73,15 @@ public class MatchState
             Combatants[CurrentTurn].SP += 2;
             Combatants[CurrentTurn].Shield = 0;
             CurrentPhase = Phase.Main;
+
+            foreach (var it in ChangeListeners) it();
         }
         else
         {
             ComputeImminentSpellsFor(CurrentTurn);
             CurrentPhase = Phase.Reaction;
+
+            foreach (var it in ChangeListeners) it();
         }
     }
 

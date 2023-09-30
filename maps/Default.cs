@@ -42,7 +42,10 @@ public class Default : Node2D
 
         c2.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
 
+        MS.ChangeListeners.Add(ComputeAvailableSpells);
+
         MS.StartGame();
+        ComputeAvailableSpells();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,6 +69,8 @@ public class Default : Node2D
         this.FindChildByName<Label>("TurnStatusLabel").Text = $"{MS.CurrentTurn} / {MS.CurrentPhase}";
 
         this.FindChildByName<Label>("IncomingSpellsLabel").Text = $"Incoming: {string.Join(", ", MS.PendingSpells.Select(it => $"{it.Item1.Name}>{it.Item2}"))}";
+
+        this.FindChildByName<Label>("AvailableSpellsLabel").Text = $"Available: {string.Join(", ", AvailableSpells.Select(it => it.Name))}";
 
         // stop the player from doing anything if it's not their turn
         if (!IsCurrentlyPlayersTurn) return;
