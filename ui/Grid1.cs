@@ -1,9 +1,12 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Grid1 : GridContainer
 {
     public Func<PlayerGrid> Src = () => null;
+
+    public List<Action<IntVec2>> CellClickedListeners = new List<Action<IntVec2>>();
 
     TextureRect Template;
 
@@ -27,7 +30,9 @@ public class Grid1 : GridContainer
             {
                 for (var x = 0; x < grid.Width; ++x)
                 {
-                    AddChild(Template.Duplicate());
+                    var nu = Template.Duplicate();
+                    nu.Connect("gui_input", this, nameof(GridCellGUIInput), new Godot.Collections.Array(new object[] { x, y }));
+                    AddChild(nu);
                 }
             }
 
@@ -35,5 +40,19 @@ public class Grid1 : GridContainer
 
             GD.Print($"Grid initialized with {grid.Width}x{grid.Height}");
         }
+    }
+
+    public void GridCellGUIInput(InputEvent evt, int x, int y)
+    {
+        if (evt is InputEventMouseButton)
+        {
+            var btn = (InputEventMouseButton)evt;
+            if (btn.Pressed)
+            {
+                GD.Print($"Cell {x},{y} clicked {btn.Pressed}");
+                foreach (var it in CellClickedListeners) it(new IntVec2(x, y));
+            }
+        }
+
     }
 }
