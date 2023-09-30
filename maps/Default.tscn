@@ -30,3 +30,9 @@ margin_left = 517.0
 margin_top = 88.0
 margin_right = 811.0
 margin_bottom = 127.0
+
+[node name="AvailableSpellsLabel" type="Label" parent="."]
+margin_left = 509.0
+margin_top = 146.0
+margin_right = 803.0
+margin_bottom = 185.0
