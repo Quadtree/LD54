@@ -12,6 +12,7 @@ public class Default : Node2D
     public static Spell[] PossibleSpells = new Spell[]{
         new FlameWave(),
         new BurningBolt(),
+        new Nullify(),
     };
 
     CombatantStatus[] CS;

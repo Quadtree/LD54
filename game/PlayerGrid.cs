@@ -11,7 +11,7 @@ public class PlayerGrid
         CellsAvailable = new bool[Width, Height];
 
         // temporary!
-        for (var y = 0; y < Height; ++y)
+        for (var y = 0; y < 2; ++y)
         {
             for (var x = 0; x < Width; ++x)
             {
