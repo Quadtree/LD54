@@ -25,6 +25,8 @@ public class Default : Node2D
 
     BasicAI AI = new BasicAI();
 
+    Spell[] AvailableSpells = Array.Empty<Spell>();
+
     public bool IsCurrentlyPlayersTurn => (MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Main) || (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Reaction);
 
     public override void _Ready()
@@ -96,5 +98,33 @@ public class Default : Node2D
         }
     }
 
+    public void ComputeAvailableSpells()
+    {
+        var availSpells = new List<Spell>();
 
+        foreach (var spell in PossibleSpells)
+        {
+            if (spell.IsReaction == (MS.CurrentPhase == MatchState.Phase.Reaction))
+            {
+                if (!spell.IsValidForCaster(MS.Combatants[MS.CurrentTurn])) continue;
+
+                var isValid = false;
+
+                for (var x = 0; x < MS.Combatants[MS.CurrentTurn].Grid.Width && !isValid; ++x)
+                {
+                    for (var y = 0; y < MS.Combatants[MS.CurrentTurn].Grid.Height && !isValid; ++y)
+                    {
+                        if (spell.IsValidAtPoint(new IntVec2(x, y), MS.Combatants[MS.CurrentTurn].Grid, MS.Combatants[1 - MS.CurrentTurn].Grid))
+                        {
+                            isValid = true;
+                        }
+                    }
+                }
+
+                if (isValid) availSpells.Add(spell);
+            }
+        }
+
+        AvailableSpells = availSpells.ToArray();
+    }
 }
