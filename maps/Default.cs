@@ -39,6 +39,9 @@ public class Default : Node2D
 
     private void TryCastSpell(Spell spell, int casterId, int targetId, IntVec2 cell)
     {
+        if (!spell.IsValidForCaster(MS.Combatants[casterId])) { GD.Print("Not enough SP!"); return; }
+        if (!spell.IsValidAtPoint(cell, MS.Combatants[casterId].Grid)) { GD.Print("Not a valid target"); return; }
+
 
     }
 }
