@@ -15,7 +15,7 @@ public class Spell
 
     public virtual IReadOnlyList<IntVec2> Footprint => Array.Empty<IntVec2>();
 
-    public virtual bool IsValidAtPoint(IntVec2 point, PlayerGrid grid)
+    public virtual bool IsValidAtPoint(IntVec2 point, PlayerGrid grid, PlayerGrid enemyGrid)
     {
         return Footprint.All(it => grid.IsCellOpen(point + it));
     }
