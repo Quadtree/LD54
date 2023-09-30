@@ -19,6 +19,17 @@ public class Default : Node2D
         new Feedback(),
     };
 
+    public enum SpellEnum
+    {
+        FlameWave,
+        BurningBolt,
+        Nullify,
+        Counterspell,
+        Shield,
+        Energize,
+        Feedback,
+    }
+
     CombatantStatus[] CS;
 
     IEnumerator<bool> Operation;
