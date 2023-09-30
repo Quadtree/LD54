@@ -22,6 +22,8 @@ public class MatchState
 
     public IReadOnlyList<Default.SpellEnum> KnownSpells = Array.Empty<Default.SpellEnum>();
 
+    public int AIMinSPToCast;
+
     public void StartGame()
     {
         Combatants[0].SP += 1;

@@ -12,6 +12,9 @@ public class BaseLevel : Node2D
     [Export]
     public int EnemyHP;
 
+    [Export]
+    public int AIMinSPToCast;
+
     public override void _Ready()
     {
 
