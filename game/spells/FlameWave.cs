@@ -6,7 +6,7 @@ public class FlameWave : Spell
     {
         if (!base.FinishCasting(caster, target, pos)) return false;
 
-        target.HP -= 7;
+        target.TakeDamage(7);
 
         return true;
     }

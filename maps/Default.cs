@@ -14,6 +14,7 @@ public class Default : Node2D
         new BurningBolt(),
         new Nullify(),
         new Counterspell(),
+        new Shield(),
     };
 
     CombatantStatus[] CS;

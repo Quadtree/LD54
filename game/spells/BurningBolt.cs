@@ -8,7 +8,7 @@ public class BurningBolt : Spell
     {
         if (!base.FinishCasting(caster, target, pos)) return false;
 
-        target.HP -= 2;
+        target.TakeDamage(2);
 
         return true;
     }
