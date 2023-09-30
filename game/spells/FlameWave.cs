@@ -17,4 +17,6 @@ public class FlameWave : Spell
     };
 
     public override IReadOnlyList<IntVec2> Footprint => _Footprint;
+
+    public override int SPCost => 2;
 }

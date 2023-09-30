@@ -75,7 +75,11 @@ public class Grid1 : GridContainer
                 }
             }
 
-            foreach (var it in HoveredCellsSource()) CellHovers[it.Item1.x, it.Item1.y] = it.Item2;
+            foreach (var it in HoveredCellsSource())
+            {
+                if (it.Item1.x >= 0 && it.Item1.y >= 0 && it.Item1.x < grid.Width && it.Item1.y < grid.Height)
+                    CellHovers[it.Item1.x, it.Item1.y] = it.Item2;
+            }
 
             for (var y = 0; y < grid.Height; ++y)
             {

@@ -53,7 +53,7 @@ public class Default : Node2D
         // stop the player from doing anything if it's not their turn
         if (!IsCurrentlyPlayersTurn) return;
 
-        for (var i = 0; i < 1; ++i)
+        for (var i = 0; i < 2; ++i)
         {
             if (Input.IsActionJustPressed($"select_spell_{i}"))
             {
