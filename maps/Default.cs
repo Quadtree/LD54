@@ -36,7 +36,7 @@ public class Default : Node2D
         c1.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
 
         // @TODO: Remove me
-        c2.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 1, 0, v2); });
+        c2.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -76,17 +76,18 @@ public class Default : Node2D
             MS.EndTurn();
         }
 
-        for (var i = 0; i < 2; ++i) CS[i].Grid1.HoveredCellsSource = () => Array.Empty<Tuple<IntVec2, Grid1.HoverType>>();
-
-        var curHover = CS[MS.CurrentTurn].Grid1.CurrentHover;
-
-        if (SelectedSpell != null && curHover is IntVec2 curHoverNotNull)
+        for (var i = 0; i < 2; ++i)
         {
-            //GD.Print("CUR HOVER! " + string.Join(" ", SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase))));
-            CS[MS.CurrentTurn].Grid1.HoveredCellsSource = () => SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase)).ToArray();
+            CS[i].Grid1.HoveredCellsSource = () => Array.Empty<Tuple<IntVec2, Grid1.HoverType>>();
+
+            var curHover = CS[i].Grid1.CurrentHover;
+
+            if (SelectedSpell != null && curHover is IntVec2 curHoverNotNull)
+            {
+                //GD.Print("CUR HOVER! " + string.Join(" ", SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase))));
+                CS[i].Grid1.HoveredCellsSource = () => SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase)).ToArray();
+            }
         }
-
-
     }
 
 
