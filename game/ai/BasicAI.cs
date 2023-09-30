@@ -36,6 +36,7 @@ public class BasicAI
 
     public IEnumerable<bool> RunReactionTurn(int myId, MatchState ms)
     {
+        ms.EndTurn();
         yield return true;
     }
 }

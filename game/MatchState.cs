@@ -24,8 +24,16 @@ public class MatchState
 
     public void EndTurn()
     {
-        CurrentTurn = (CurrentTurn + 1) % 2;
-        GD.Print($"Now turn for player {CurrentTurn}");
-        Combatants[CurrentTurn].SP += 2;
+        if (CurrentPhase == Phase.Reaction)
+        {
+            CurrentTurn = (CurrentTurn + 1) % 2;
+            GD.Print($"Now turn for player {CurrentTurn}");
+            Combatants[CurrentTurn].SP += 2;
+            CurrentPhase = Phase.Main;
+        }
+        else
+        {
+            CurrentPhase = Phase.Reaction;
+        }
     }
 }
