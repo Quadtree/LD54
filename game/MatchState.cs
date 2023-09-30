@@ -24,6 +24,19 @@ public class MatchState
         if (!spell.IsValidAtPoint(cell, Combatants[casterId].Grid)) { GD.Print("Not a valid target"); return; }
 
         spell.StartCast(Combatants[casterId], Combatants[targetId], cell);
+
+        if (casterId == CurrentTurn && CurrentPhase == Phase.Main)
+        {
+            PendingSpells.Add(Tuple.Create(spell, cell));
+        }
+        else if (casterId != CurrentTurn && CurrentPhase == Phase.Reaction)
+        {
+            spell.FinishCasting(Combatants[casterId], Combatants[targetId], cell);
+        }
+        else
+        {
+            GD.PushWarning("This is not valid!");
+        }
     }
 
     public void EndTurn()
