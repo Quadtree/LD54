@@ -3,6 +3,12 @@ using Godot;
 
 public class BasicAI
 {
+    private static Spell[] POSSIBLE_SPELLS = new Spell[]{
+        new BurningBolt(),
+        new FlameWave(),
+        new Feedback(),
+    };
+
     public IEnumerable<bool> RunMainTurn(int myId, MatchState ms)
     {
         var opoId = 1 - myId;
@@ -16,7 +22,7 @@ public class BasicAI
                 Util.RandInt(0, ms.Combatants[myId].Grid.Height)
             );
 
-            var spell = Util.Choice(Default.PossibleSpells);
+            var spell = Util.Choice(POSSIBLE_SPELLS);
 
             ms.TryCastSpell(spell, myId, opoId, trgPos);
 
