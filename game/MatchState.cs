@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Godot;
 
 public class MatchState
@@ -13,6 +15,8 @@ public class MatchState
     public int CurrentTurn;
     public Phase CurrentPhase;
 
+    public List<Tuple<Spell, IntVec2>> PendingSpells = new List<Tuple<Spell, IntVec2>>();
+
     public void TryCastSpell(Spell spell, int casterId, int targetId, IntVec2 cell)
     {
         if (spell == null) { GD.Print("No spell selected!"); return; }
@@ -26,6 +30,8 @@ public class MatchState
     {
         if (CurrentPhase == Phase.Reaction)
         {
+            foreach (var it in PendingSpells) it.Item1.FinishCasting(Combatants[CurrentTurn], Combatants[1 - CurrentTurn], it.Item2);
+
             CurrentTurn = (CurrentTurn + 1) % 2;
             GD.Print($"Now turn for player {CurrentTurn}");
             Combatants[CurrentTurn].SP += 2;
