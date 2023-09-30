@@ -29,6 +29,7 @@ public class MatchState
         if (casterId == CurrentTurn && CurrentPhase == Phase.Main)
         {
             PendingSpells.Add(Tuple.Create(spell, cell));
+            ComputeImminentSpellsFor(CurrentTurn);
         }
         else if (casterId != CurrentTurn && CurrentPhase == Phase.Reaction)
         {
