@@ -54,7 +54,7 @@ public class Default : Node2D
         // stop the player from doing anything if it's not their turn
         if (!IsCurrentlyPlayersTurn) return;
 
-        for (var i = 0; i < 2; ++i)
+        for (var i = 0; i < 10; ++i)
         {
             if (Input.IsActionJustPressed($"select_spell_{i}"))
             {
@@ -68,7 +68,7 @@ public class Default : Node2D
             MS.EndTurn();
         }
 
-        for (var i = 0; i < 2; ++i) CS[MS.CurrentTurn].Grid1.HoveredCellsSource = () => Array.Empty<Tuple<IntVec2, Grid1.HoverType>>();
+        for (var i = 0; i < 2; ++i) CS[i].Grid1.HoveredCellsSource = () => Array.Empty<Tuple<IntVec2, Grid1.HoverType>>();
 
         var curHover = CS[MS.CurrentTurn].Grid1.CurrentHover;
 
