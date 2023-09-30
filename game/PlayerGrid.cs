@@ -21,6 +21,7 @@ public class PlayerGrid
         }
 
         CellsUsed = new bool[Width, Height];
+        ImminentSpells = new bool[Width, Height];
     }
 
     public bool IsCellOpen(IntVec2 pos)
