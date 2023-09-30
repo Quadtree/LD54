@@ -22,10 +22,9 @@ All spells have some potential traits like:
 1. Extremely simple and easy level where you just place down Burning Bolts. Energize is also available
 2. More complex scenario where there is now room for Flame Lance. The opponent still has no space for Flame Lance
 3. Enemy has big wide area, and casts in bursts. Introduce Shield.
-4. Enemy has wider, long area. Introduce nullify
+4. Enemy has big wedge-shaped area. Introduce Feedback
 5. Enemy has long and thin area. Introduce counterspelling
-6. Enemy has big wedge-shaped area. Introduce Feedback
-7. Enemy has big square area. All spells available
+6. Enemy has big square area. All spells available
 
 ## Problems
 - Matches may turn into pathetic-matches where nobody can deal damage. What will cause it to end?
