@@ -4,7 +4,7 @@ using System;
 public class BaseLevel : Node2D
 {
     [Export]
-    Default.SpellEnum[] KnownSpells;
+    public Default.SpellEnum[] KnownSpells;
 
     public override void _Ready()
     {

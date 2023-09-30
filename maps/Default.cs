@@ -164,6 +164,10 @@ public class Default : Node2D
                     }
                 }
             }
+
+            ++idx;
         }
+
+        MS.KnownSpells = level.KnownSpells;
     }
 }
