@@ -17,6 +17,6 @@ public class Shield : Spell
     {
         base.StartCast(caster, target, pos);
 
-        caster.Shield += 5;
+        caster.Shield += 4;
     }
 }
