@@ -25,11 +25,33 @@ public class Spell
         caster.SP -= SPCost;
     }
 
-    public virtual void FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
+    private static IntVec2[] DELTAS = new IntVec2[]{
+        new IntVec2(0, 0),
+        new IntVec2(-1, 0),
+        new IntVec2(1, 0),
+        new IntVec2(0, -1),
+        new IntVec2(0, 1),
+        new IntVec2(-2, 0),
+        new IntVec2(2, 0),
+        new IntVec2(0, -2),
+        new IntVec2(0, 2),
+    };
+
+    public virtual bool FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
     {
-        foreach (var it in Footprint.Select(it => pos + it))
+        foreach (var delta in DELTAS)
         {
-            if (caster.Grid.IsCellInBounds(it)) caster.Grid.CellsUsed[it.x, it.y] = true;
+            if (Footprint.Select(it => pos + it + delta).All(it => caster.Grid.IsCellOpen(it)))
+            {
+                foreach (var it in Footprint.Select(it => pos + it))
+                {
+                    caster.Grid.CellsUsed[it.x, it.y] = true;
+                }
+
+                return true;
+            }
         }
+
+        return false;
     }
 }

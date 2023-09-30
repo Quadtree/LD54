@@ -17,13 +17,15 @@ public class Nullify : Spell
 
     public override IReadOnlyList<IntVec2> Footprint => _Footprint;
 
-    public override void FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
+    public override bool FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
     {
-        base.FinishCasting(caster, target, pos);
+        if (!base.FinishCasting(caster, target, pos)) return false;
 
         foreach (var it in _Footprint2.Select(it => pos + it))
         {
             if (target.Grid.IsCellInBounds(it)) target.Grid.CellsUsed[it.x, it.y] = true;
         }
+
+        return true;
     }
 }

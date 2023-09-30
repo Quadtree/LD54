@@ -2,11 +2,13 @@ using System.Collections.Generic;
 
 public class FlameWave : Spell
 {
-    public override void FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
+    public override bool FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
     {
-        base.FinishCasting(caster, target, pos);
+        if (!base.FinishCasting(caster, target, pos)) return false;
 
         target.HP -= 7;
+
+        return true;
     }
 
     private static IReadOnlyList<IntVec2> _Footprint = new IntVec2[]{
