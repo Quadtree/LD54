@@ -121,6 +121,8 @@ public class Default : Node2D
 
         foreach (var spell in PossibleSpells)
         {
+            if (!MS.KnownSpells.Contains((SpellEnum)idx)) continue;
+
             if (spell.IsReaction == (MS.CurrentPhase == MatchState.Phase.Reaction))
             {
                 if (!spell.IsValidForCaster(MS.Combatants[MS.CurrentTurn])) continue;
