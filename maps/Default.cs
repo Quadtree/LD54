@@ -165,6 +165,7 @@ public class Default : Node2D
                 {
                     if (it.GetCell(x, y) != TileMap.InvalidCell)
                     {
+                        GD.Print($"{x},{y} is filled on {idx}");
                         MS.Combatants[idx].Grid.CellsAvailable[x, y] = true;
                     }
                 }
