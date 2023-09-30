@@ -38,13 +38,13 @@ public class MatchState
         }
     }
 
-    public void TryCastSpell(Spell spell, int casterId, int targetId, IntVec2 cell)
+    public string TryCastSpell(Spell spell, int casterId, int targetId, IntVec2 cell)
     {
-        if (spell == null) { GD.Print("No spell selected!"); return; }
-        if (!spell.IsValidForCaster(Combatants[casterId])) { GD.Print("Not enough SP!"); return; }
-        if (!spell.IsValidAtPoint(cell, Combatants[casterId].Grid, Combatants[targetId].Grid)) { GD.Print("Not a valid target"); return; }
-        if (spell.IsReaction && CurrentPhase != Phase.Reaction) { GD.Print("Incorrect phase"); return; }
-        if (!spell.IsReaction && CurrentPhase != Phase.Main) { GD.Print("Incorrect phase"); return; }
+        if (spell == null) { return ("No spell selected!"); }
+        if (!spell.IsValidForCaster(Combatants[casterId])) { return ("Not enough SP!"); }
+        if (!spell.IsValidAtPoint(cell, Combatants[casterId].Grid, Combatants[targetId].Grid)) { return ("Not a valid target"); }
+        if (spell.IsReaction && CurrentPhase != Phase.Reaction) { return ("Incorrect phase"); }
+        if (!spell.IsReaction && CurrentPhase != Phase.Main) { return ("Incorrect phase"); }
 
         spell.StartCast(Combatants[casterId], Combatants[targetId], cell);
 
@@ -57,6 +57,8 @@ public class MatchState
             PendingSpells.Add(Tuple.Create(spell, cell));
             ComputeImminentSpellsFor(CurrentTurn);
         }
+
+        return null;
     }
 
     public void EndTurn()
