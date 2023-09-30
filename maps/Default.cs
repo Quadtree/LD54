@@ -99,7 +99,7 @@ public class Default : Control
 
         if (OS.IsDebugBuild() && Input.IsActionJustPressed("test"))
         {
-            this.FindChildByType<AnimationPlayer>().Play("Dropped");
+            this.FindChildrenByType<AnimationPlayer>().Last().Play("Dropped");
         }
 
         if (Input.IsActionJustPressed("end_turn"))
