@@ -20,6 +20,8 @@ public class MatchState
 
     public List<Action> ChangeListeners = new List<Action>();
 
+    public IReadOnlyList<Default.SpellEnum> KnownSpells = Array.Empty<Default.SpellEnum>();
+
     public void StartGame()
     {
         Combatants[0].SP += 1;
