@@ -15,6 +15,9 @@ public class BaseLevel : Node2D
     [Export]
     public int AIMinSPToCast;
 
+    [Export]
+    public Default.SpellEnum[] EnemySpells;
+
     public override void _Ready()
     {
 
