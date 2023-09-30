@@ -5,7 +5,7 @@ public class Nullify : Spell
 {
     private static IReadOnlyList<IntVec2> _Footprint = new IntVec2[]{
         new IntVec2(0,0),
-        new IntVec2(0,-1),
+        new IntVec2(0,1),
     };
 
     public override IReadOnlyList<IntVec2> Footprint => _Footprint;

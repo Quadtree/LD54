@@ -13,10 +13,12 @@ public class FlameWave : Spell
         new IntVec2(0,0),
         new IntVec2(-1,0),
         new IntVec2(1,0),
-        new IntVec2(1,1),
+        new IntVec2(2,0),
     };
 
     public override IReadOnlyList<IntVec2> Footprint => _Footprint;
 
     public override int SPCost => 2;
+
+    public override string Name => "Flame Ray";
 }
