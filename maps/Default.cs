@@ -51,6 +51,8 @@ public class Default : Node2D
             Operation = AI.RunTurn(MS.CurrentTurn, MS).GetEnumerator();
         }
 
+        this.FindChildByName<Label>("TurnStatusLabel").Text = $"{MS.CurrentTurn} / {MS.CurrentPhase}";
+
         // stop the player from doing anything if it's not their turn
         if (!IsCurrentlyPlayersTurn) return;
 
