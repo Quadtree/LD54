@@ -73,14 +73,25 @@ public class Grid1 : GridContainer
             {
                 for (var x = 0; x < grid.Width; ++x)
                 {
-                    if (!grid.CellsAvailable[x,y])
+                    if (!grid.CellsAvailable[x, y])
                     {
-                        Cells[x,y].Visible = false;
+                        Cells[x, y].Visible = false;
                     }
                     else
                     {
-                        Cells[x,y].Visible = true;
-                        if (CellHovers[x,y] == HoverType.SpellBase && )
+                        Cells[x, y].Visible = true;
+                        if (CellHovers[x, y] == HoverType.SpellBase && grid.CellsUsed[x, y])
+                        {
+                            Cells[x, y].Modulate = Colors.Red;
+                        }
+                        else if (grid.CellsUsed[x, y])
+                        {
+                            Cells[x, y].Modulate = Colors.Orange;
+                        }
+                        else
+                        {
+                            Cells[x, y].Modulate = Colors.Gray;
+                        }
                     }
                 }
             }
