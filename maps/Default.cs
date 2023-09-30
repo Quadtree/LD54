@@ -52,6 +52,7 @@ public class Default : Node2D
 
         if (SelectedSpell != null && curHover is IntVec2 curHoverNotNull)
         {
+            //GD.Print("CUR HOVER! " + string.Join(" ", SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase))));
             CS[MS.CurrentTurn].Grid1.HoveredCellsSource = () => SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase)).ToArray();
         }
     }

@@ -96,6 +96,10 @@ public class Grid1 : GridContainer
                         {
                             Cells[x, y].Modulate = Colors.Orange;
                         }
+                        else if (CellHovers[x, y] == HoverType.SpellBase)
+                        {
+                            Cells[x, y].Modulate = Colors.Green;
+                        }
                         else
                         {
                             Cells[x, y].Modulate = Colors.Gray;
@@ -105,7 +109,7 @@ public class Grid1 : GridContainer
             }
         }
 
-        GD.Print(CurrentHover);
+        //GD.Print(CurrentHover);
     }
 
     public void GridCellGUIInput(InputEvent evt, int x, int y)
