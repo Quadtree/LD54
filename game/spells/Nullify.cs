@@ -17,9 +17,9 @@ public class Nullify : Spell
 
     public override IReadOnlyList<IntVec2> Footprint => _Footprint;
 
-    public override void StartCast(Combatant caster, Combatant target, IntVec2 pos)
+    public override void FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
     {
-        base.StartCast(caster, target, pos);
+        base.FinishCasting(caster, target, pos);
 
         foreach (var it in _Footprint2.Select(it => pos + it))
         {

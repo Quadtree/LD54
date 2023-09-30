@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 public class FlameWave : Spell
 {
-    public override void StartCast(Combatant caster, Combatant target, IntVec2 pos)
+    public override void FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
     {
-        base.StartCast(caster, target, pos);
+        base.FinishCasting(caster, target, pos);
 
         target.HP -= 7;
     }
