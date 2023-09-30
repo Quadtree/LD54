@@ -18,10 +18,10 @@ public class Default : Node2D
         c1.Src = () => MS.Combatants[0];
         c2.Src = () => MS.Combatants[1];
 
-        c1.CellClickedListeners.Add(v2 => TryCastSpell(SelectedSpell, 0, 1, v2));
+        c1.CellClickedListeners.Add(v2 => MS.TryCastSpell(SelectedSpell, 0, 1, v2));
 
         // @TODO: Remove me
-        c2.CellClickedListeners.Add(v2 => TryCastSpell(SelectedSpell, 1, 0, v2));
+        c2.CellClickedListeners.Add(v2 => MS.TryCastSpell(SelectedSpell, 1, 0, v2));
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,11 +37,5 @@ public class Default : Node2D
         }
     }
 
-    private void TryCastSpell(Spell spell, int casterId, int targetId, IntVec2 cell)
-    {
-        if (!spell.IsValidForCaster(MS.Combatants[casterId])) { GD.Print("Not enough SP!"); return; }
-        if (!spell.IsValidAtPoint(cell, MS.Combatants[casterId].Grid)) { GD.Print("Not a valid target"); return; }
 
-
-    }
 }
