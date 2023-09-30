@@ -18,6 +18,24 @@ public class MatchState
 
     public List<Tuple<Spell, IntVec2>> PendingSpells = new List<Tuple<Spell, IntVec2>>();
 
+    public void StartGame()
+    {
+        Combatants[0].SP += 1;
+
+        foreach (var cmb in Combatants)
+        {
+            // var openCells = 0;
+            // for (var i=0;i<cmb.Grid.Width;++i)
+            // {
+            //     for (var j=0;j<cmb.Grid.Height;++j){
+            //         if (cmb.Grid.IsCellOpen(i,j)) openCells++;
+            //     }
+            // }
+
+            // cmb.HP =
+        }
+    }
+
     public void TryCastSpell(Spell spell, int casterId, int targetId, IntVec2 cell)
     {
         if (spell == null) { GD.Print("No spell selected!"); return; }

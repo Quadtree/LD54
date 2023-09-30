@@ -31,14 +31,13 @@ public class Default : Node2D
         c1.Src = () => MS.Combatants[0];
         c2.Src = () => MS.Combatants[1];
 
-        MS.Combatants[0].SP += 1;
-
         CS = new CombatantStatus[] { c1, c2 };
 
         c1.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
 
-        // @TODO: Remove me
         c2.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
+
+        MS.StartGame();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
