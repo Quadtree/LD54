@@ -16,6 +16,7 @@ public class Default : Node2D
         new Counterspell(),
         new Shield(),
         new Energize(),
+        new Feedback(),
     };
 
     CombatantStatus[] CS;
