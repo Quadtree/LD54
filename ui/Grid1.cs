@@ -30,6 +30,8 @@ public class Grid1 : GridContainer
                     AddChild(Template.Duplicate());
                 }
             }
+
+            Initialized = true;
         }
     }
 }
