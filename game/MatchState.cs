@@ -46,18 +46,14 @@ public class MatchState
 
         spell.StartCast(Combatants[casterId], Combatants[targetId], cell);
 
-        if (casterId == CurrentTurn && CurrentPhase == Phase.Main)
-        {
-            PendingSpells.Add(Tuple.Create(spell, cell));
-            ComputeImminentSpellsFor(CurrentTurn);
-        }
-        else if (spell.IsInstant)
+        if (spell.IsInstant)
         {
             spell.FinishCasting(Combatants[casterId], Combatants[targetId], cell);
         }
         else
         {
-            GD.PushWarning("This is not valid!");
+            PendingSpells.Add(Tuple.Create(spell, cell));
+            ComputeImminentSpellsFor(CurrentTurn);
         }
     }
 
