@@ -9,6 +9,8 @@ public class Spell
 
     public virtual int SPCost => 1;
 
+    public virtual bool IsReaction => false;
+
     public virtual IReadOnlyList<IntVec2> Footprint => Array.Empty<IntVec2>();
 
     public virtual bool IsValidAtPoint(IntVec2 point, PlayerGrid grid)

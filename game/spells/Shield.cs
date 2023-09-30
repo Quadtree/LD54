@@ -11,6 +11,8 @@ public class Shield : Spell
 
     public override IReadOnlyList<IntVec2> Footprint => _Footprint;
 
+    public override bool IsReaction => true;
+
     public override void StartCast(Combatant caster, Combatant target, IntVec2 pos)
     {
         base.StartCast(caster, target, pos);
