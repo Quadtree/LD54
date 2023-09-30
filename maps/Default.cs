@@ -7,8 +7,8 @@ public class Default : Node2D
 
     public override void _Ready()
     {
-        this.FindChildByName<Grid1>("Grid1").Src = () => MS.Player.Grid;
-        this.FindChildByName<Grid1>("Grid2").Src = () => MS.Opponent.Grid;
+        this.FindChildByName<CombatantStatus>("CombatantStatus").Src = () => MS.Player;
+        this.FindChildByName<CombatantStatus>("CombatantStatus2").Src = () => MS.Opponent;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
