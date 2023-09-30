@@ -87,11 +87,11 @@ public class Grid1 : GridContainer
                 {
                     if (!grid.CellsAvailable[x, y])
                     {
-                        Cells[x, y].Visible = false;
+                        Cells[x, y].Modulate = Colors.Transparent;
                     }
                     else
                     {
-                        Cells[x, y].Visible = true;
+                        //Cells[x, y].Visible = true;
                         if (grid.ImminentSpells[x, y])
                         {
                             Cells[x, y].Modulate = Colors.Yellow;
