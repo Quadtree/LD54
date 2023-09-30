@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Godot;
 
 public class Spell
 {
@@ -43,14 +44,19 @@ public class Spell
         {
             if (Footprint.Select(it => pos + it + delta).All(it => caster.Grid.IsCellOpen(it)))
             {
-                foreach (var it in Footprint.Select(it => pos + it))
+                foreach (var it in Footprint.Select(it => pos + it + delta))
                 {
+                    if (!caster.Grid.IsCellOpen(it)) GD.PushWarning("Invalid spell location!");
                     caster.Grid.CellsUsed[it.x, it.y] = true;
                 }
+
+                GD.Print($"{Name} has moved by {delta} to {pos + delta}");
 
                 return true;
             }
         }
+
+        GD.Print($"{Name} fizzles!");
 
         return false;
     }
