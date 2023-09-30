@@ -51,7 +51,7 @@ public class MatchState
             PendingSpells.Add(Tuple.Create(spell, cell));
             ComputeImminentSpellsFor(CurrentTurn);
         }
-        else if (casterId != CurrentTurn && CurrentPhase == Phase.Reaction)
+        else if (spell.IsInstant)
         {
             spell.FinishCasting(Combatants[casterId], Combatants[targetId], cell);
         }
