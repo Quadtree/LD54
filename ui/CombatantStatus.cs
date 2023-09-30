@@ -1,9 +1,12 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class CombatantStatus : VBoxContainer
 {
     public Func<Combatant> Src = () => null;
+
+    public List<Action<IntVec2>> CellClickedListeners = new List<Action<IntVec2>>();
 
     bool Initialized = false;
 
@@ -18,6 +21,7 @@ public class CombatantStatus : VBoxContainer
         {
             Initialized = true;
             this.FindChildByType<Grid1>().Src = () => Src().Grid;
+            this.FindChildByType<Grid1>().CellClickedListeners.Add((v2) => { foreach (var it in CellClickedListeners) it(v2); });
         }
 
         var cmb = Src();
