@@ -25,7 +25,7 @@ public class BasicAI
                     Util.RandInt(0, ms.Combatants[myId].Grid.Height)
                 );
 
-                var spell = POSSIBLE_SPELLS[Math.Min(i / 2000, POSSIBLE_SPELLS.Length - 1)];
+                var spell = ms.EnemyAvailableSpells[Math.Min(i / 2000, ms.EnemyAvailableSpells.Length - 1)];
 
                 ms.TryCastSpell(spell, myId, opoId, trgPos);
 

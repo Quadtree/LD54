@@ -24,6 +24,8 @@ public class MatchState
 
     public int AIMinSPToCast;
 
+    public Spell[] EnemyAvailableSpells;
+
     public void StartGame()
     {
         Combatants[0].SP += 1;

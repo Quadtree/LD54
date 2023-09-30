@@ -55,7 +55,7 @@ public class Default : Node2D
 
         MS.ChangeListeners.Add(ComputeAvailableSpells);
 
-        LoadLevel("res://levels/Level2.tscn");
+        LoadLevel("res://levels/Level3.tscn");
 
         MS.StartGame();
         ComputeAvailableSpells();
@@ -180,5 +180,6 @@ public class Default : Node2D
         MS.Combatants[0].HP = level.PlayerHP;
         MS.Combatants[1].HP = level.EnemyHP;
         MS.AIMinSPToCast = level.AIMinSPToCast;
+        MS.EnemyAvailableSpells = level.EnemySpells.Select(it => PossibleSpells[(int)it]).ToArray();
     }
 }

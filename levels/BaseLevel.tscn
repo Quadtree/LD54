@@ -8,6 +8,7 @@ script = ExtResource( 2 )
 KnownSpells = [ 1, 5 ]
 PlayerHP = 15
 EnemyHP = 7
+EnemySpells = [ 0, 1 ]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
