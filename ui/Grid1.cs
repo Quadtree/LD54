@@ -102,9 +102,8 @@ public class Grid1 : GridContainer
 
     public void GridCellGUIInput(InputEvent evt, int x, int y)
     {
-        if (evt is InputEventMouseButton)
+        if (evt is InputEventMouseButton btn)
         {
-            var btn = (InputEventMouseButton)evt;
             if (btn.Pressed)
             {
                 GD.Print($"Cell {x},{y} clicked {btn.Pressed}");
