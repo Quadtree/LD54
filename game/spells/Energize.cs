@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Godot;
 
 public class Energize : Spell
 {
@@ -14,10 +15,5 @@ public class Energize : Spell
 
     public override bool IsInstant => true;
 
-    public override void StartCast(Combatant caster, Combatant target, IntVec2 pos)
-    {
-        base.StartCast(caster, target, pos);
-
-        caster.SP += 1;
-    }
+    public override int SPCost => -1;
 }
