@@ -5,6 +5,7 @@ public class PlayerGrid
 
     public bool[,] CellsAvailable;
     public bool[,] CellsUsed;
+    public bool[,] ImminentSpells;
 
     public PlayerGrid()
     {
