@@ -1,3 +1,17 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/Grid1.tscn" type="PackedScene" id=1]
 
 [node name="Default" type="Node2D"]
+
+[node name="Grid1" parent="." instance=ExtResource( 1 )]
+margin_left = 90.0
+margin_top = 299.0
+margin_right = 589.0
+margin_bottom = 802.0
+
+[node name="Grid2" parent="." instance=ExtResource( 1 )]
+margin_left = 1347.0
+margin_top = 291.0
+margin_right = 1846.0
+margin_bottom = 794.0

@@ -11,10 +11,15 @@ config_version=4
 [application]
 
 config/name="LD54"
+run/main_scene="res://maps/Default.tscn"
 config/icon="res://icon.png"
 
 [display]
 
+window/size/width=1920
+window/size/height=1080
+window/size/test_width=3600
+window/size/test_height=1900
 window/dpi/allow_hidpi=true
 
 [gui]

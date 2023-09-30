@@ -12,11 +12,13 @@ public class Grid1 : GridContainer
 
         var grid = Src();
 
+        Columns = grid.Width;
+
         for (var y = 0; y < grid.Height; ++y)
         {
             for (var x = 0; x < grid.Width; ++x)
             {
-
+                AddChild(template.Duplicate());
             }
         }
     }
