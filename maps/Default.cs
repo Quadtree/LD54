@@ -25,7 +25,7 @@ public class Default : Node2D
 
     BasicAI AI = new BasicAI();
 
-    Spell[] AvailableSpells = Array.Empty<Spell>();
+    Tuple<int, Spell>[] AvailableSpells = Array.Empty<Tuple<int, Spell>>();
 
     public bool IsCurrentlyPlayersTurn => (MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Main) || (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Reaction);
 
@@ -70,7 +70,7 @@ public class Default : Node2D
 
         this.FindChildByName<Label>("IncomingSpellsLabel").Text = $"Incoming: {string.Join(", ", MS.PendingSpells.Select(it => $"{it.Item1.Name}>{it.Item2}"))}";
 
-        this.FindChildByName<Label>("AvailableSpellsLabel").Text = $"Available: {string.Join(", ", AvailableSpells.Select(it => it.Name))}";
+        this.FindChildByName<Label>("AvailableSpellsLabel").Text = $"Available: {string.Join(", ", AvailableSpells.Select(it => $"{it.Item2.Name} ({it.Item1})"))}";
 
         // stop the player from doing anything if it's not their turn
         if (!IsCurrentlyPlayersTurn) return;
@@ -105,7 +105,8 @@ public class Default : Node2D
 
     public void ComputeAvailableSpells()
     {
-        var availSpells = new List<Spell>();
+        var availSpells = new List<Tuple<int, Spell>>();
+        int idx = 0;
 
         foreach (var spell in PossibleSpells)
         {
@@ -126,8 +127,10 @@ public class Default : Node2D
                     }
                 }
 
-                if (isValid) availSpells.Add(spell);
+                if (isValid) availSpells.Add(Tuple.Create(idx, spell));
             }
+
+            ++idx;
         }
 
         AvailableSpells = availSpells.ToArray();
