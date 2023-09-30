@@ -15,6 +15,7 @@ public class Default : Node2D
         new Nullify(),
         new Counterspell(),
         new Shield(),
+        new Energize(),
     };
 
     CombatantStatus[] CS;
