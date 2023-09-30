@@ -1,5 +1,13 @@
 public class MatchState
 {
-    public Combatant Player = new Combatant();
-    public Combatant Opponent = new Combatant();
+    public enum Phase
+    {
+        Main,
+        Reaction
+    }
+
+    public Combatant[] Combatants = new Combatant[] { new Combatant(), new Combatant() };
+
+    public int CurrentTurn;
+    public Phase CurrentPhase;
 }
