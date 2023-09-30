@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Godot;
 
 public class BasicAI
 {
@@ -6,7 +7,9 @@ public class BasicAI
     {
         var opoId = 1 - myId;
 
-        for (var i = 0; i < 1000; ++i)
+        var startTimeMs = Time.GetTicksMsec();
+
+        for (var i = 0; i < 10_000; ++i)
         {
             var trgPos = new IntVec2(
                 Util.RandInt(0, ms.Combatants[myId].Grid.Width),
@@ -19,7 +22,11 @@ public class BasicAI
 
             if (ms.Combatants[myId].SP <= 0) break;
 
-            yield return false;
+            if (Time.GetTicksMsec() - startTimeMs > 8)
+            {
+                yield return false;
+                startTimeMs = Time.GetTicksMsec();
+            }
         }
 
         ms.EndTurn();
