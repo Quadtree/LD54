@@ -20,7 +20,7 @@ public class Spell
         return comb.SP >= SPCost;
     }
 
-    public virtual void Cast(Combatant caster, Combatant target, IntVec2 pos)
+    public virtual void StartCast(Combatant caster, Combatant target, IntVec2 pos)
     {
         foreach (var it in Footprint.Select(it => pos + it))
         {
@@ -28,5 +28,10 @@ public class Spell
         }
 
         caster.SP -= SPCost;
+    }
+
+    public virtual void FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
+    {
+
     }
 }

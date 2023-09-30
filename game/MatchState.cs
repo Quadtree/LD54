@@ -19,7 +19,7 @@ public class MatchState
         if (!spell.IsValidForCaster(Combatants[casterId])) { GD.Print("Not enough SP!"); return; }
         if (!spell.IsValidAtPoint(cell, Combatants[casterId].Grid)) { GD.Print("Not a valid target"); return; }
 
-        spell.Cast(Combatants[casterId], Combatants[targetId], cell);
+        spell.StartCast(Combatants[casterId], Combatants[targetId], cell);
     }
 
     public void EndTurn()
