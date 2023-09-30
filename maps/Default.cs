@@ -146,4 +146,24 @@ public class Default : Node2D
 
         AvailableSpells = availSpells.ToArray();
     }
+
+    public void LoadLevel(string resName)
+    {
+        var level = GD.Load<PackedScene>(resName).Instance<BaseLevel>();
+        var idx = 0;
+
+        foreach (var it in level.FindChildrenByType<TileMap>())
+        {
+            for (var x = 0; x < MS.Combatants[idx].Grid.Width; ++x)
+            {
+                for (var y = 0; y < MS.Combatants[idx].Grid.Height; ++y)
+                {
+                    if (it.GetCell(x, y) != TileMap.InvalidCell)
+                    {
+                        MS.Combatants[idx].Grid.CellsAvailable[x, y] = true;
+                    }
+                }
+            }
+        }
+    }
 }
