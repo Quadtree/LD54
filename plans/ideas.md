@@ -7,16 +7,16 @@ All spells have some potential traits like:
 - Reaction?: If a spell is instant, it can be cast after the enemy has decided on spells but _before_ they resolve. Note that any MP changes happen immediately
 
 ### Spell List
-- Flame Wave (2MP): 1x4: Deals 7 fire damage
-- Burning Bolt (1MP): 1x1: Deals 2 fire damage
-- Counterspell (2MP / Reaction): 3x1: Targets the same point on the other side. Any spell that has just been cast to the left or right of the targeted point is nullified
-- Energize (0MP): 3x3: Generates 1 MP
-- Shield (1MP / Reaction): Provides 5 protection from fire damage
-- Etheric Bolt (2MP): 1x3: Deals 4 Etheric damage.
-- Fireball (1MP): 3x3 Circle: Deals 6 fire damage
-- Nullify (1MP): 2x3: Also consumes this space on the other side
-- Drain (1MP): 1x1: All 9 spaces at the same spot on the other side must be filled. Deals 5 Etheric damage.
-- Luminous Lance (2MP): 1x5: Grants the target 1MP _immediately_, before their reaction phase. If the spell is not subsequently counterspelled, deals 12 fire damage.
+1. Flame Wave (2MP): 1x4: Deals 7 fire damage
+2. Burning Bolt (1MP): 1x1: Deals 2 fire damage
+3. Counterspell (2MP / Reaction): 3x1: Targets the same point on the other side. Any spell that has just been cast to the left or right of the targeted point is nullified
+4. Energize (0MP): 3x3: Generates 1 MP
+5. Shield (1MP / Reaction): Provides 5 protection from fire damage
+6. Etheric Bolt (2MP): 1x3: Deals 4 Etheric damage.
+7. Fireball (1MP): 3x3 Circle: Deals 6 fire damage
+8. Nullify (1MP): 2x3: Also consumes this space on the other side
+9. Drain (1MP): 1x1: All 9 spaces at the same spot on the other side must be filled. Deals 5 Etheric damage.
+0. Luminous Lance (2MP): 1x5: Grants the target 1MP _immediately_, before their reaction phase. If the spell is not subsequently counterspelled, deals 12 fire damage.
 
 ## Problems
 - Matches may turn into pathetic-matches where nobody can deal damage. What will cause it to end?
