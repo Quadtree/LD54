@@ -15,6 +15,7 @@ public class MatchState
 
     public void TryCastSpell(Spell spell, int casterId, int targetId, IntVec2 cell)
     {
+        if (spell == null) { GD.Print("No spell selected!"); return; }
         if (!spell.IsValidForCaster(Combatants[casterId])) { GD.Print("Not enough SP!"); return; }
         if (!spell.IsValidAtPoint(cell, Combatants[casterId].Grid)) { GD.Print("Not a valid target"); return; }
 
