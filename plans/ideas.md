@@ -14,7 +14,7 @@ All spells have some potential traits like:
 5. Shield (1MP / Reaction): Provides 5 protection from fire damage
 6. Etheric Bolt (2MP): 1x3: Deals 4 Etheric damage.
 7. Fireball (1MP): 3x3 Circle: Deals 6 fire damage
-8. Nullify (1MP): 2x3: Also consumes this space on the other side
+8. Nullify (1MP): 1x2: Also consumes this space on the other side
 9. Drain (1MP): 1x1: All 9 spaces at the same spot on the other side must be filled. Deals 5 Etheric damage.
 0. Luminous Lance (2MP): 1x5: Grants the target 1MP _immediately_, before their reaction phase. If the spell is not subsequently counterspelled, deals 12 fire damage.
 
