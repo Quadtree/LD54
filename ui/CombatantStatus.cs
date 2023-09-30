@@ -19,5 +19,12 @@ public class CombatantStatus : VBoxContainer
             Initialized = true;
             this.FindChildByType<Grid1>().Src = () => Src().Grid;
         }
+
+        var cmb = Src();
+        if (cmb != null)
+        {
+            this.FindChildByName<Label>("HPLabel").Text = $"HP: {cmb.HP}";
+            this.FindChildByName<Label>("MPLabel").Text = $"SP: {cmb.SP}";
+        }
     }
 }

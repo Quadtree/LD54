@@ -13,7 +13,7 @@ margin_right = 521.0
 margin_bottom = 939.0
 
 [node name="CombatantStatus2" parent="." instance=ExtResource( 1 )]
-margin_left = 1469.0
-margin_top = 299.0
-margin_right = 1917.0
-margin_bottom = 1127.0
+margin_left = 1384.0
+margin_top = 111.0
+margin_right = 1832.0
+margin_bottom = 939.0
