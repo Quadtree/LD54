@@ -32,6 +32,8 @@ public class Grid1 : GridContainer
             }
 
             Initialized = true;
+
+            GD.Print($"Grid initialized with {grid.Width}x{grid.Height}");
         }
     }
 }
