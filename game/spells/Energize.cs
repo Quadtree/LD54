@@ -16,11 +16,6 @@ public class Energize : Spell
     {
         base.StartCast(caster, target, pos);
 
-        foreach (var it in _Footprint.Select(it => pos + it))
-        {
-            if (target.Grid.IsCellInBounds(it)) target.Grid.CellsUsed[it.x, it.y] = true;
-        }
-
         caster.SP += 1;
     }
 }
