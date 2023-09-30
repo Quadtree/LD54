@@ -9,10 +9,10 @@ public class Nullify : Spell
 
     private static IReadOnlyList<IntVec2> _Footprint2 = new IntVec2[]{
         new IntVec2(0,0),
-        new IntVec2(0,1),
+        //new IntVec2(0,1),
         new IntVec2(0,-1),
-        new IntVec2(1,0),
-        new IntVec2(-1,0),
+        //new IntVec2(1,0),
+        //new IntVec2(-1,0),
     };
 
     public override IReadOnlyList<IntVec2> Footprint => _Footprint;
