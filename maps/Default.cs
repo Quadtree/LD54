@@ -123,26 +123,28 @@ public class Default : Node2D
 
         foreach (var spell in PossibleSpells)
         {
-            if (!MS.KnownSpells.Contains((SpellEnum)idx)) continue;
-
-            if (spell.IsReaction == (MS.CurrentPhase == MatchState.Phase.Reaction))
+            if (MS.KnownSpells.Contains((SpellEnum)idx))
             {
-                if (!spell.IsValidForCaster(MS.Combatants[MS.CurrentTurn])) continue;
-
-                var isValid = false;
-
-                for (var x = 0; x < MS.Combatants[MS.CurrentTurn].Grid.Width && !isValid; ++x)
+                if (spell.IsReaction == (MS.CurrentPhase == MatchState.Phase.Reaction))
                 {
-                    for (var y = 0; y < MS.Combatants[MS.CurrentTurn].Grid.Height && !isValid; ++y)
+                    if (spell.IsValidForCaster(MS.Combatants[MS.CurrentTurn]))
                     {
-                        if (spell.IsValidAtPoint(new IntVec2(x, y), MS.Combatants[MS.CurrentTurn].Grid, MS.Combatants[1 - MS.CurrentTurn].Grid))
+                        var isValid = false;
+
+                        for (var x = 0; x < MS.Combatants[MS.CurrentTurn].Grid.Width && !isValid; ++x)
                         {
-                            isValid = true;
+                            for (var y = 0; y < MS.Combatants[MS.CurrentTurn].Grid.Height && !isValid; ++y)
+                            {
+                                if (spell.IsValidAtPoint(new IntVec2(x, y), MS.Combatants[MS.CurrentTurn].Grid, MS.Combatants[1 - MS.CurrentTurn].Grid))
+                                {
+                                    isValid = true;
+                                }
+                            }
                         }
+
+                        if (isValid) availSpells.Add(Tuple.Create(idx, spell));
                     }
                 }
-
-                if (isValid) availSpells.Add(Tuple.Create(idx, spell));
             }
 
             ++idx;
