@@ -55,7 +55,7 @@ public class Default : Node2D
 
         MS.ChangeListeners.Add(ComputeAvailableSpells);
 
-        LoadLevel("res://levels/Level3.tscn");
+        LoadLevel("res://levels/Level4.tscn");
 
         MS.StartGame();
         ComputeAvailableSpells();
