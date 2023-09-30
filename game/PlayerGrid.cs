@@ -12,13 +12,13 @@ public class PlayerGrid
         CellsAvailable = new bool[Width, Height];
 
         // temporary!
-        for (var y = 0; y < 3; ++y)
-        {
-            for (var x = 0; x < Width; ++x)
-            {
-                CellsAvailable[x, y] = true;
-            }
-        }
+        // for (var y = 0; y < 3; ++y)
+        // {
+        //     for (var x = 0; x < Width; ++x)
+        //     {
+        //         //CellsAvailable[x, y] = true;
+        //     }
+        // }
 
         CellsUsed = new bool[Width, Height];
         ImminentSpells = new bool[Width, Height];
