@@ -10,6 +10,7 @@ public class Grid1 : GridContainer
 
     public enum HoverType
     {
+        None,
         SpellBase,
     }
 
@@ -20,6 +21,7 @@ public class Grid1 : GridContainer
     bool Initialized = false;
 
     TextureRect[,] Cells;
+    HoverType[,] CellHovers;
 
     public override void _Ready()
     {
@@ -29,10 +31,10 @@ public class Grid1 : GridContainer
 
     public override void _Process(float delta)
     {
-        if (!Initialized && Src() != null)
-        {
-            var grid = Src();
+        var grid = Src();
 
+        if (!Initialized && grid != null)
+        {
             Columns = grid.Width;
 
             Cells = new TextureRect[grid.Width, grid.Height];
@@ -53,7 +55,28 @@ public class Grid1 : GridContainer
             GD.Print($"Grid initialized with {grid.Width}x{grid.Height}");
         }
 
+        if (grid != null)
+        {
+            if (CellHovers == null) CellHovers = new HoverType[grid.Width, grid.Height];
 
+            for (var y = 0; y < grid.Height; ++y)
+            {
+                for (var x = 0; x < grid.Width; ++x)
+                {
+                    CellHovers[x, y] = HoverType.None;
+                }
+            }
+
+            foreach (var it in HoveredCellsSource()) CellHovers[it.Item1.x, it.Item1.y] = it.Item2;
+
+            for (var y = 0; y < grid.Height; ++y)
+            {
+                for (var x = 0; x < grid.Width; ++x)
+                {
+
+                }
+            }
+        }
     }
 
     public void GridCellGUIInput(InputEvent evt, int x, int y)
