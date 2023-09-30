@@ -1,5 +1,5 @@
 public class MatchState
 {
-    public PlayerGrid PlayerGrid = new PlayerGrid();
-    public PlayerGrid OpponentGrid = new PlayerGrid();
+    public Combatant Player = new Combatant();
+    public Combatant Opponent = new Combatant();
 }
