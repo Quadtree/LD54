@@ -3,7 +3,7 @@ using Godot;
 
 public class BasicAI
 {
-    public IEnumerable<bool> RunTurn(int myId, MatchState ms)
+    public IEnumerable<bool> RunMainTurn(int myId, MatchState ms)
     {
         var opoId = 1 - myId;
 
@@ -31,6 +31,11 @@ public class BasicAI
 
         ms.EndTurn();
 
+        yield return true;
+    }
+
+    public IEnumerable<bool> RunReactionTurn(int myId, MatchState ms)
+    {
         yield return true;
     }
 }

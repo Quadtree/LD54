@@ -48,7 +48,7 @@ public class Default : Node2D
 
         if (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Main)
         {
-            Operation = AI.RunTurn(MS.CurrentTurn, MS).GetEnumerator();
+            Operation = AI.RunMainTurn(MS.CurrentTurn, MS).GetEnumerator();
         }
 
         this.FindChildByName<Label>("TurnStatusLabel").Text = $"{MS.CurrentTurn} / {MS.CurrentPhase}";
