@@ -11,12 +11,16 @@ public class Default : Node2D
         new BurningBolt()
     };
 
+    CombatantStatus[] CS;
+
     public override void _Ready()
     {
         var c1 = this.FindChildByName<CombatantStatus>("CombatantStatus");
         var c2 = this.FindChildByName<CombatantStatus>("CombatantStatus2");
         c1.Src = () => MS.Combatants[0];
         c2.Src = () => MS.Combatants[1];
+
+        CS = new CombatantStatus[] { c1, c2 };
 
         c1.CellClickedListeners.Add(v2 => MS.TryCastSpell(SelectedSpell, 0, 1, v2));
 
@@ -39,6 +43,11 @@ public class Default : Node2D
         if (Input.IsActionJustPressed("end_turn"))
         {
             MS.EndTurn();
+        }
+
+        if (SelectedSpell != null && CS[MS.CurrentTurn].Grid1.CurrentHover != null)
+        {
+
         }
     }
 

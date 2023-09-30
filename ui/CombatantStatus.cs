@@ -8,11 +8,13 @@ public class CombatantStatus : VBoxContainer
 
     public List<Action<IntVec2>> CellClickedListeners = new List<Action<IntVec2>>();
 
+    public Grid1 Grid1;
+
     bool Initialized = false;
 
     public override void _Ready()
     {
-
+        Grid1 = this.FindChildByType<Grid1>();
     }
 
     public override void _Process(float delta)
