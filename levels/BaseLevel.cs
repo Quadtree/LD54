@@ -6,6 +6,12 @@ public class BaseLevel : Node2D
     [Export]
     public Default.SpellEnum[] KnownSpells;
 
+    [Export]
+    public int PlayerHP;
+
+    [Export]
+    public int EnemyHP;
+
     public override void _Ready()
     {
 

@@ -6,6 +6,8 @@
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource( 2 )
 KnownSpells = [ 1, 5 ]
+PlayerHP = 15
+EnemyHP = 7
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
