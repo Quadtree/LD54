@@ -17,10 +17,12 @@ public class BasicAI
 
             ms.TryCastSpell(spell, myId, opoId, trgPos);
 
-            if (ms.Combatants[myId].SP <= 0) yield return true;
+            if (ms.Combatants[myId].SP <= 0) break;
 
             yield return false;
         }
+
+        ms.EndTurn();
 
         yield return true;
     }
