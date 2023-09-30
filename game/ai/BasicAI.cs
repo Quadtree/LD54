@@ -17,6 +17,8 @@ public class BasicAI
 
             ms.TryCastSpell(spell, myId, opoId, trgPos);
 
+            if (ms.Combatants[myId].SP <= 0) yield return true;
+
             yield return false;
         }
 
