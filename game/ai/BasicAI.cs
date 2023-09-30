@@ -12,27 +12,30 @@ public class BasicAI
 
     public IEnumerable<bool> RunMainTurn(int myId, MatchState ms)
     {
-        var opoId = 1 - myId;
-
-        var startTimeMs = Time.GetTicksMsec();
-
-        for (var i = 0; i < 10_000; ++i)
+        if (ms.Combatants[myId].SP >= ms.AIMinSPToCast)
         {
-            var trgPos = new IntVec2(
-                Util.RandInt(0, ms.Combatants[myId].Grid.Width),
-                Util.RandInt(0, ms.Combatants[myId].Grid.Height)
-            );
+            var opoId = 1 - myId;
 
-            var spell = POSSIBLE_SPELLS[Math.Min(i / 2000, POSSIBLE_SPELLS.Length - 1)];
+            var startTimeMs = Time.GetTicksMsec();
 
-            ms.TryCastSpell(spell, myId, opoId, trgPos);
-
-            if (ms.Combatants[myId].SP <= 0) break;
-
-            if (Time.GetTicksMsec() - startTimeMs > 8)
+            for (var i = 0; i < 10_000; ++i)
             {
-                yield return false;
-                startTimeMs = Time.GetTicksMsec();
+                var trgPos = new IntVec2(
+                    Util.RandInt(0, ms.Combatants[myId].Grid.Width),
+                    Util.RandInt(0, ms.Combatants[myId].Grid.Height)
+                );
+
+                var spell = POSSIBLE_SPELLS[Math.Min(i / 2000, POSSIBLE_SPELLS.Length - 1)];
+
+                ms.TryCastSpell(spell, myId, opoId, trgPos);
+
+                if (ms.Combatants[myId].SP <= 0) break;
+
+                if (Time.GetTicksMsec() - startTimeMs > 8)
+                {
+                    yield return false;
+                    startTimeMs = Time.GetTicksMsec();
+                }
             }
         }
 

@@ -179,5 +179,6 @@ public class Default : Node2D
         MS.KnownSpells = level.KnownSpells;
         MS.Combatants[0].HP = level.PlayerHP;
         MS.Combatants[1].HP = level.EnemyHP;
+        MS.AIMinSPToCast = level.AIMinSPToCast;
     }
 }
