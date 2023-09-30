@@ -153,6 +153,7 @@ public class Default : Node2D
 
     public void LoadLevel(string resName)
     {
+        GD.Print($"Loading {resName}");
         var level = GD.Load<PackedScene>(resName).Instance<BaseLevel>();
         var idx = 0;
 
