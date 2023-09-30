@@ -1,9 +1,89 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ui/Grid1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/CombatantStatus.cs" type="Script" id=2]
 [ext_resource path="res://textures/platform.png" type="Texture" id=3]
 [ext_resource path="res://textures/mage1.png" type="Texture" id=4]
+[ext_resource path="res://textures/fire_particle.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Death"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, -2.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Sprite2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -144.196, -235.582, -336.542 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Sprite2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.25, -2.5 ), Vector2( -19.25, -24.75 ), Vector2( -36.25, 42.25 ), Vector2( -40.25, 114 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.25, -2.25 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Sprite2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Sprite2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -19.25, -24.75 ) ]
+}
 
 [node name="CombatantStatus" type="VBoxContainer"]
 margin_right = 448.0
@@ -35,5 +115,19 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="Sprite"]
-position = Vector2( 0.25, -2.25 )
+position = Vector2( -19.25, -24.75 )
 texture = ExtResource( 4 )
+
+[node name="FireSplash" type="CPUParticles2D" parent="Sprite"]
+position = Vector2( -38.25, 78.75 )
+scale = Vector2( 0.25, 0.25 )
+emitting = false
+amount = 25
+lifetime = 0.3
+one_shot = true
+texture = ExtResource( 5 )
+linear_accel = -1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Death = SubResource( 1 )
+anims/RESET = SubResource( 2 )
