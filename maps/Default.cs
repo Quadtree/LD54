@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public class Default : Node2D
 {
@@ -45,9 +46,13 @@ public class Default : Node2D
             MS.EndTurn();
         }
 
-        if (SelectedSpell != null && CS[MS.CurrentTurn].Grid1.CurrentHover != null)
-        {
+        for (var i = 0; i < 2; ++i) CS[MS.CurrentTurn].Grid1.HoveredCellsSource = () => Array.Empty<Tuple<IntVec2, Grid1.HoverType>>();
 
+        var curHover = CS[MS.CurrentTurn].Grid1.CurrentHover;
+
+        if (SelectedSpell != null && curHover is IntVec2 curHoverNotNull)
+        {
+            CS[MS.CurrentTurn].Grid1.HoveredCellsSource = () => SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase)).ToArray();
         }
     }
 
