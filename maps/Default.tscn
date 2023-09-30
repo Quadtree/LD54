@@ -17,3 +17,10 @@ margin_left = 1384.0
 margin_top = 111.0
 margin_right = 1832.0
 margin_bottom = 939.0
+
+[node name="TurnStatusLabel" type="Label" parent="."]
+margin_left = 499.0
+margin_top = 48.0
+margin_right = 900.0
+margin_bottom = 89.0
+text = "<TURN STATUS>"
