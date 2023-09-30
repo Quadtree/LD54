@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 public class MatchState
@@ -45,6 +46,8 @@ public class MatchState
         {
             foreach (var it in PendingSpells) it.Item1.FinishCasting(Combatants[CurrentTurn], Combatants[1 - CurrentTurn], it.Item2);
 
+            Util.ZeroMemory(Combatants[CurrentTurn].Grid.ImminentSpells);
+
             CurrentTurn = (CurrentTurn + 1) % 2;
             GD.Print($"Now turn for player {CurrentTurn}");
             Combatants[CurrentTurn].SP += 2;
@@ -52,7 +55,15 @@ public class MatchState
         }
         else
         {
+            ComputeImminentSpellsFor(CurrentTurn);
             CurrentPhase = Phase.Reaction;
         }
+    }
+
+    public void ComputeImminentSpellsFor(int cmbId)
+    {
+        Util.ZeroMemory(Combatants[cmbId].Grid.ImminentSpells);
+
+        foreach (var it in PendingSpells) foreach (var it2 in it.Item1.Footprint.Select(it3 => it3 + it.Item2)) if (Combatants[cmbId].Grid.IsCellInBounds(it2)) Combatants[cmbId].Grid.ImminentSpells[it2.x, it2.y] = true;
     }
 }
