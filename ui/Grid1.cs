@@ -112,10 +112,9 @@ public class Grid1 : GridContainer
             }
         }
 
-        if (evt is InputEventMouseMotion)
+        if (evt is InputEventMouseMotion mtn)
         {
-            var mtn = (InputEventMouseMotion)evt;
-            
+
         }
 
         CurrentHover = new IntVec2(x, y);
