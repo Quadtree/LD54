@@ -31,6 +31,7 @@ public class CombatantStatus : VBoxContainer
         {
             this.FindChildByName<Label>("HPLabel").Text = $"HP: {cmb.HP}";
             this.FindChildByName<Label>("MPLabel").Text = $"SP: {cmb.SP}";
+            this.FindChildByName<Label>("ShieldLabel").Text = $"Shield: {cmb.Shield}";
         }
     }
 }

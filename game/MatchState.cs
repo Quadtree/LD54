@@ -73,6 +73,7 @@ public class MatchState
             CurrentTurn = (CurrentTurn + 1) % 2;
             GD.Print($"Now turn for player {CurrentTurn}");
             Combatants[CurrentTurn].SP += 2;
+            Combatants[CurrentTurn].Shield = 0;
             CurrentPhase = Phase.Main;
         }
         else
