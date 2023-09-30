@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Default : Node2D
+public class Default : Control
 {
     MatchState MS = new MatchState();
 

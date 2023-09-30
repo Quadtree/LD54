@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/Grid1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/CombatantStatus.cs" type="Script" id=2]
+[ext_resource path="res://textures/platform.png" type="Texture" id=3]
+[ext_resource path="res://textures/mage1.png" type="Texture" id=4]
 
 [node name="CombatantStatus" type="VBoxContainer"]
 margin_right = 448.0
@@ -25,4 +27,14 @@ margin_bottom = 50.0
 [node name="Grid1" parent="." instance=ExtResource( 1 )]
 margin_top = 54.0
 margin_right = 448.0
-margin_bottom = 86.0
+margin_bottom = 118.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 188, 762 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 189, 753 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
