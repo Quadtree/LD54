@@ -13,6 +13,7 @@ public class Default : Node2D
         new FlameWave(),
         new BurningBolt(),
         new Nullify(),
+        new Counterspell(),
     };
 
     CombatantStatus[] CS;
