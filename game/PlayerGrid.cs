@@ -30,4 +30,10 @@ public class PlayerGrid
 
         return false;
     }
+
+    public bool IsCellInBounds(IntVec2 pos)
+    {
+        if (pos.x < 0 || pos.y < 0 || pos.x >= Width || pos.y >= Height) return false;
+        return true;
+    }
 }

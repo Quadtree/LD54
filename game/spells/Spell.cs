@@ -24,7 +24,7 @@ public class Spell
     {
         foreach (var it in Footprint.Select(it => pos + it))
         {
-            caster.Grid.CellsUsed[it.x, it.y] = true;
+            if (caster.Grid.IsCellInBounds(it)) caster.Grid.CellsUsed[it.x, it.y] = true;
         }
 
         caster.SP -= SPCost;
