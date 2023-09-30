@@ -14,7 +14,7 @@ public class Feedback : Spell
     {
         if (!base.FinishCasting(caster, target, pos)) return false;
 
-        target.TakeDamage(7);
+        target.TakeDamage(8);
 
         return true;
     }
