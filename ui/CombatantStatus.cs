@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class CombatantStatus : VBoxContainer
 {
+    [Export]
+    bool Flipped;
+
     public Func<Combatant> Src = () => null;
 
     public List<Action<IntVec2>> CellClickedListeners = new List<Action<IntVec2>>();
@@ -15,6 +18,8 @@ public class CombatantStatus : VBoxContainer
     public override void _Ready()
     {
         Grid1 = this.FindChildByType<Grid1>();
+
+        if (Flipped) this.FindChildByName<Node2D>("Sprite").Scale = new Vector2(-4, 4);
     }
 
     public override void _Process(float delta)
