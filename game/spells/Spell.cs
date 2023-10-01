@@ -15,6 +15,9 @@ public class Spell
 
     public virtual IReadOnlyList<IntVec2> Footprint => Array.Empty<IntVec2>();
 
+    public virtual Color RuneColor => Colors.White;
+    public virtual byte RuneType => 0;
+
     public virtual bool IsValidAtPoint(IntVec2 point, PlayerGrid grid, PlayerGrid enemyGrid)
     {
         return Footprint.All(it => grid.IsCellOpen(point + it));
