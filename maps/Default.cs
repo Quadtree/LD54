@@ -78,7 +78,21 @@ public class Default : Control
 
         CS = new CombatantStatus[] { c1, c2 };
 
-        c1.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
+        c1.CellClickedListeners.Add(v2 =>
+        {
+            if (IsCurrentlyPlayersTurn)
+            {
+                var oo = MS.TryCastSpell(SelectedSpell, 0, 1, v2);
+                if (oo == null)
+                {
+                    Util.SpawnOneShotSound(GD.Load<AudioStream>("res://sounds/place_rune.wav"), this);
+                }
+                else
+                {
+                    GD.Print(oo);
+                }
+            }
+        });
 
         //c2.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
 
