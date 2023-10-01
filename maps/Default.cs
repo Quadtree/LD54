@@ -55,7 +55,7 @@ public class Default : Control
 
     public List<Tuple<int, int, string>> SpellInFlightQueue = new List<Tuple<int, int, string>>();
 
-    public static int CurrentLevel = 1;
+    public static int CurrentLevel = 5;
 
     int? Loser;
     string DefeatTextHeadline = "";
@@ -260,7 +260,7 @@ public class Default : Control
 
         if (Input.IsMouseButtonPressed((int)ButtonList.Left)) this.FindChildByName<Label>("StartOfLevelTextLabel").Visible = false;
 
-        if (MS.CurrentPhase == MatchState.Phase.Reaction && MS.CurrentTurn == 1 && AvailableSpells.Length == 0) PlayerInitatedEndTurn();
+        //if (MS.CurrentPhase == MatchState.Phase.Reaction && MS.CurrentTurn == 1 && AvailableSpells.Length == 0) PlayerInitatedEndTurn();
     }
 
     public void ComputeAvailableSpells()
@@ -274,15 +274,18 @@ public class Default : Control
             {
                 if (spell.IsReaction == (MS.CurrentPhase == MatchState.Phase.Reaction))
                 {
-                    if (spell.IsValidForCaster(MS.Combatants[MS.CurrentTurn]))
+                    var comb = MS.CurrentPhase == MatchState.Phase.Reaction ? MS.Combatants[1 - MS.CurrentTurn] : MS.Combatants[MS.CurrentTurn];
+                    var enemy = MS.CurrentPhase != MatchState.Phase.Reaction ? MS.Combatants[1 - MS.CurrentTurn] : MS.Combatants[MS.CurrentTurn];
+
+                    if (spell.IsValidForCaster(comb))
                     {
                         var isValid = false;
 
-                        for (var x = 0; x < MS.Combatants[MS.CurrentTurn].Grid.Width && !isValid; ++x)
+                        for (var x = 0; x < comb.Grid.Width && !isValid; ++x)
                         {
-                            for (var y = 0; y < MS.Combatants[MS.CurrentTurn].Grid.Height && !isValid; ++y)
+                            for (var y = 0; y < comb.Grid.Height && !isValid; ++y)
                             {
-                                if (spell.IsValidAtPoint(new IntVec2(x, y), MS.Combatants[MS.CurrentTurn].Grid, MS.Combatants[1 - MS.CurrentTurn].Grid))
+                                if (spell.IsValidAtPoint(new IntVec2(x, y), comb.Grid, enemy.Grid))
                                 {
                                     isValid = true;
                                 }

@@ -3,7 +3,7 @@
 [ext_resource path="res://levels/BaseLevel.tscn" type="PackedScene" id=1]
 
 [node name="BaseLevel" instance=ExtResource( 1 )]
-KnownSpells = [ 1, 5, 0, 4, 3, 6 ]
+KnownSpells = [ 1, 5, 0, 4, 6 ]
 EnemyHP = 25
 EnemySpells = [ 5, 1 ]
 EnemyMageRobeColor = Color( 0, 1, 0.537255, 1 )

@@ -26,5 +26,5 @@ public class Counterspell : Spell
         }
     }
 
-    public override string Desc => "Adds a block to the enemy grid. Their spell will shift to avoid it, if it can't it will fizzle";
+    public override string Desc => "Adds a block to the enemy grid, which may cause their spell to fizzle";
 }
