@@ -51,7 +51,6 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 
 # TODO
 - Some way to tell where you're targeting on the other side
-- Spell descriptions on cards
 - Prevent AI from doubling up their spells
 - Sound
 - Music
@@ -67,3 +66,4 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 - Mage robe colors
 - Show "cards" indicating which spells are available
 - Start of level texts
+- Spell descriptions on cards

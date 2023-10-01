@@ -25,4 +25,6 @@ public class Counterspell : Spell
             if (target.Grid.IsCellInBounds(it)) target.Grid.CellsUsed[it.x, it.y] = true;
         }
     }
+
+    public override string Desc => "Adds a block to the enemy grid. Their spell will shift to avoid it, if it can't it will fizzle";
 }

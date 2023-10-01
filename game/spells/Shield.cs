@@ -23,4 +23,6 @@ public class Shield : Spell
 
         caster.Shield += 4;
     }
+
+    public override string Desc => "Adds 4 shield. Shield dissipates at the start of your turn";
 }

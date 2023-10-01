@@ -19,4 +19,6 @@ public class Energize : Spell
     public override bool IsInstant => true;
 
     public override int SPCost => -1;
+
+    public override string Desc => "Grants SP at the cost of space";
 }
