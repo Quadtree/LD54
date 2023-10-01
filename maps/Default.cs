@@ -119,7 +119,7 @@ public class Default : Control
             var bgmPlayer = new AudioStreamPlayer();
             bgmPlayer.Stream = GD.Load<AudioStream>("res://music/bgm.ogg");
             bgmPlayer.Name = "BGMPlayer";
-            bgmPlayer.VolumeDb = -8;
+            bgmPlayer.VolumeDb = -10;
             GetTree().Root.AddChild(bgmPlayer);
             bgmPlayer.Play();
         }
