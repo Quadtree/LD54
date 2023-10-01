@@ -113,9 +113,9 @@ margin_bottom = 83.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_left = 68.0
+margin_left = 56.0
 margin_top = 87.0
-margin_right = 507.0
+margin_right = 519.0
 margin_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -126,8 +126,14 @@ margin_right = 244.0
 margin_bottom = 20.0
 text = "What's the worst that could happen?"
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
 margin_left = 248.0
-margin_right = 439.0
+margin_right = 268.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 272.0
+margin_right = 463.0
 margin_bottom = 20.0
 text = "Oh right, better cast a spell!"
