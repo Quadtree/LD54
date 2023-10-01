@@ -16,4 +16,6 @@ public class BurningBolt : Spell
 
         return true;
     }
+
+    public override string Name => "Burning Bolt";
 }

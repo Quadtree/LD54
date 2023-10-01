@@ -26,5 +26,5 @@ public class FlameWave : Spell
 
     public override int SPCost => 2;
 
-    public override string Name => "Flame Ray";
+    public override string Name => "Flame Lance";
 }

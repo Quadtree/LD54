@@ -34,3 +34,12 @@ size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 text = "<Name>"
 align = 1
+
+[node name="Desc" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 32.0
+margin_right = 140.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "<Name>"
+align = 1
