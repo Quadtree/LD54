@@ -3,7 +3,7 @@ using Godot;
 
 public class BurningBolt : Spell
 {
-    public override Color RuneColor => Colors.OrangeRed;
+    public override Color RuneColor => Colors.Orange;
     public override byte RuneType => 0;
 
     public override IReadOnlyList<IntVec2> Footprint => new IntVec2[] { new IntVec2(0, 0) };

@@ -55,6 +55,11 @@ public class Spell
                 {
                     if (!caster.Grid.IsCellOpen(it)) GD.PushWarning("Invalid spell location!");
                     caster.Grid.CellsUsed[it.x, it.y] = true;
+                    caster.Grid.SpellOverlays[it.x, it.y] = new PlayerGrid.SpellOverlay
+                    {
+                        Color = RuneColor,
+                        RuneId = (byte)(RuneType + 1),
+                    };
                 }
 
                 GD.Print($"{Name} has moved by {delta} to {pos + delta}");
