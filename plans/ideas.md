@@ -30,7 +30,7 @@ All spells have some potential traits like:
 2. Now you've got a more worthy adversary, but you've also got Flame Lance! It takes up more space, but it packs a punch!
 3. This enemy is notorious for using energize to lay down a hail of flame! Fortunately, you've now got the Shield spell, which you can cast during the Reaction phase before the enemy's spells actually hit. I'd recommend reserving some SP for this.
 4. This enemy also loves the Energize spell, but you've got another secret weapon: Feedback. Cast it on your side when the matching cells on the other side are full.
-5. This enemy particularly prefers Flame Lance. You have a new spell, Counterspell, which you can use during your reaction phase. Use it to cause the Flame Lances to fizzle!
+5. This enemy particularly prefers Flame Lance. You have a new spell, Counterspell, which you can use during your reaction phase. Use it to cause the Flame Lances to fizzle, but be aware that spells can shift slightly to avoid being counterspelled!
 6. This enemy is just generally tough. You'll need to go all out to win!
 
 ## Problems
