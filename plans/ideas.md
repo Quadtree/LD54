@@ -43,8 +43,8 @@ All spells have some potential traits like:
 We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on my 4K screen.
 
 # TODO
-- Restarting levels
 - Font, final button graphics
+- Proper display of who's turn it is, etc
 - Show "cards" indicating which spells are available
 - Title screen
 - Prevent AI from doubling up their spells
@@ -55,3 +55,4 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 - Restarting levels on defeat
 - Final graphics for runes
 - Advancing from one level to the next
+- Restarting levels
