@@ -18,6 +18,9 @@ public class BaseLevel : Node2D
     [Export]
     public Default.SpellEnum[] EnemySpells;
 
+    [Export]
+    public Color EnemyMageRobeColor;
+
     public override void _Ready()
     {
 
