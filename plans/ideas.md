@@ -43,7 +43,6 @@ All spells have some potential traits like:
 We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on my 4K screen.
 
 # TODO
-- Font, final button graphics
 - Show "cards" indicating which spells are available
 - Mage robe colors
 - Title screen
@@ -57,3 +56,4 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 - Advancing from one level to the next
 - Restarting levels
 - Proper display of who's turn it is, etc
+- Font, final button graphics
