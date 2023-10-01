@@ -1,7 +1,11 @@
 using System.Collections.Generic;
+using Godot;
 
 public class FlameWave : Spell
 {
+    public override Color RuneColor => Colors.Red;
+    public override byte RuneType => 4;
+
     public override bool FinishCasting(Combatant caster, Combatant target, IntVec2 pos)
     {
         if (!base.FinishCasting(caster, target, pos)) return false;

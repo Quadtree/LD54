@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using Godot;
 
 public class Feedback : Spell
 {
+    public override Color RuneColor => new Color("c000de");
+    public override byte RuneType => 3;
+
     private static IReadOnlyList<IntVec2> _Footprint = new IntVec2[]{
         new IntVec2(0,0),
         //new IntVec2(1,0),

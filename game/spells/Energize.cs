@@ -4,6 +4,9 @@ using Godot;
 
 public class Energize : Spell
 {
+    public override Color RuneColor => Colors.Yellow;
+    public override byte RuneType => 2;
+
     private static IReadOnlyList<IntVec2> _Footprint = new IntVec2[]{
         new IntVec2(0,0),
         new IntVec2(0,-1),

@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using Godot;
 
 public class Counterspell : Spell
 {
+    public override Color RuneColor => new Color("00e474");
+    public override byte RuneType => 1;
+
     private static IReadOnlyList<IntVec2> _Footprint = new IntVec2[]{
         new IntVec2(0,0),
         new IntVec2(0,-1),

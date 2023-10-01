@@ -1,8 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using Godot;
 
 public class Shield : Spell
 {
+    public override Color RuneColor => Colors.Blue;
+    public override byte RuneType => 5;
+
     private static IReadOnlyList<IntVec2> _Footprint = new IntVec2[]{
         new IntVec2(0,1),
         new IntVec2(0,0),
