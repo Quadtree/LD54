@@ -178,6 +178,7 @@ public class Default : Control
 
         if (Loser != null && QueuedAnimation != null && SpellInFlight == null && SpellInFlightQueue.Count == 0)
         {
+            if (QueuedAnimation == "Explode") Util.SpawnOneShotSound(GD.Load<AudioStream>("res://sounds/explode.wav"), this);
             CS[Loser.Value].FindChildByType<AnimationPlayer>().Play(QueuedAnimation);
             QueuedAnimation = null;
         }
