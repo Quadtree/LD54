@@ -74,6 +74,12 @@ public class MatchState
 
     public void EndTurn()
     {
+        for (var i = 0; i < 2; ++i)
+        {
+            Util.ZeroMemory(Combatants[i].Grid.ImminentSpells);
+            Util.ZeroMemory(Combatants[i].Grid.FaintSpellOverlays);
+        }
+
         if (CurrentPhase == Phase.Reaction)
         {
             foreach (var it in PendingSpells)
@@ -83,9 +89,6 @@ public class MatchState
             }
 
             PendingSpells.Clear();
-
-            Util.ZeroMemory(Combatants[CurrentTurn].Grid.ImminentSpells);
-            Util.ZeroMemory(Combatants[CurrentTurn].Grid.FaintSpellOverlays);
 
             CurrentTurn = (CurrentTurn + 1) % 2;
             GD.Print($"Now turn for player {CurrentTurn}");
