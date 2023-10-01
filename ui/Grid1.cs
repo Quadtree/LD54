@@ -126,6 +126,10 @@ public class Grid1 : GridContainer
                         col.a = 0.25f;
                         Cells[x, y].FindChildByType<TextureRect>().Modulate = col;
                     }
+                    else
+                    {
+                        Cells[x, y].FindChildByType<TextureRect>().Modulate = Colors.Transparent;
+                    }
                 }
             }
         }
