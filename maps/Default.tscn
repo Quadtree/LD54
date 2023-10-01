@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/CombatantStatus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/Default.cs" type="Script" id=2]
 [ext_resource path="res://textures/background1.png" type="Texture" id=3]
+[ext_resource path="res://fonts/BigFont.tres" type="DynamicFont" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -29,27 +30,27 @@ margin_right = 64.0
 margin_bottom = 653.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 68.0
-margin_right = 1681.0
+margin_left = 72.0
+margin_right = 1677.0
 margin_bottom = 653.0
 size_flags_horizontal = 3
 
 [node name="TurnStatusLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_right = 1613.0
-margin_bottom = 14.0
+margin_right = 1605.0
+margin_bottom = 20.0
 text = "<TURN STATUS>"
 align = 1
 
 [node name="IncomingSpellsLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 1613.0
-margin_bottom = 32.0
+margin_top = 28.0
+margin_right = 1605.0
+margin_bottom = 48.0
 align = 1
 
 [node name="AvailableSpellsLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 36.0
-margin_right = 1613.0
-margin_bottom = 50.0
+margin_top = 56.0
+margin_right = 1605.0
+margin_bottom = 76.0
 align = 1
 
 [node name="CombatantStatus2" parent="HBoxContainer" instance=ExtResource( 1 )]
@@ -67,76 +68,102 @@ anchor_bottom = 0.75
 
 [node name="Headline" type="Label" parent="Modal"]
 margin_right = 960.0
-margin_bottom = 14.0
+margin_bottom = 128.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = ExtResource( 4 )
 text = "<HEADLINE!>"
 align = 1
 
-[node name="Body" type="Label" parent="Modal"]
-margin_top = 18.0
+[node name="Control3" type="Control" parent="Modal"]
+margin_top = 136.0
 margin_right = 960.0
-margin_bottom = 32.0
+margin_bottom = 166.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="Body" type="Label" parent="Modal"]
+margin_top = 174.0
+margin_right = 960.0
+margin_bottom = 217.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 text = "<BODY TEXT!>"
 align = 1
 
+[node name="Control2" type="Control" parent="Modal"]
+margin_top = 225.0
+margin_right = 960.0
+margin_bottom = 255.0
+rect_min_size = Vector2( 0, 30 )
+
 [node name="Button" type="Button" parent="Modal"]
-margin_left = 448.0
-margin_top = 36.0
-margin_right = 512.0
-margin_bottom = 56.0
+margin_left = 409.0
+margin_top = 263.0
+margin_right = 550.0
+margin_bottom = 318.0
 size_flags_horizontal = 4
 text = "Proceed"
 
 [node name="NotCastingSpellModal" type="VBoxContainer" parent="."]
 visible = false
-anchor_left = 0.35
-anchor_top = 0.337
-anchor_right = 0.65
+anchor_left = 0.2
+anchor_top = 0.295
+anchor_right = 0.8
 anchor_bottom = 0.641
 
 [node name="Label" type="Label" parent="NotCastingSpellModal"]
-margin_right = 576.0
-margin_bottom = 14.0
+margin_right = 1152.0
+margin_bottom = 128.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = ExtResource( 4 )
 text = "Are you sure?"
 align = 1
 
 [node name="Label2" type="Label" parent="NotCastingSpellModal"]
-margin_top = 18.0
-margin_right = 576.0
-margin_bottom = 49.0
+margin_top = 136.0
+margin_right = 1152.0
+margin_bottom = 228.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 text = "The archmages clearly stated that you have to cast at least one spell per round. They also said the rules would be \"strictly enforced\"."
 align = 1
 autowrap = true
 
 [node name="Control" type="Control" parent="NotCastingSpellModal"]
-margin_top = 53.0
-margin_right = 576.0
-margin_bottom = 83.0
+margin_top = 236.0
+margin_right = 1152.0
+margin_bottom = 266.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NotCastingSpellModal"]
-margin_left = 56.0
-margin_top = 87.0
-margin_right = 519.0
-margin_bottom = 107.0
+margin_left = 52.0
+margin_top = 274.0
+margin_right = 1099.0
+margin_bottom = 329.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="TryNotCastingSpellButton" type="Button" parent="NotCastingSpellModal/HBoxContainer"]
-margin_right = 244.0
-margin_bottom = 20.0
+margin_right = 571.0
+margin_bottom = 55.0
 text = "What's the worst that could happen?"
 
 [node name="Control" type="Control" parent="NotCastingSpellModal/HBoxContainer"]
-margin_left = 248.0
-margin_right = 268.0
-margin_bottom = 20.0
+margin_left = 579.0
+margin_right = 599.0
+margin_bottom = 55.0
 rect_min_size = Vector2( 20, 0 )
 
 [node name="CancelNotCastingSpellButton" type="Button" parent="NotCastingSpellModal/HBoxContainer"]
-margin_left = 272.0
-margin_right = 463.0
-margin_bottom = 20.0
+margin_left = 607.0
+margin_right = 1047.0
+margin_bottom = 55.0
 text = "Oh right, better cast a spell!"
 
 [node name="RestartLevelButton" type="Button" parent="."]
