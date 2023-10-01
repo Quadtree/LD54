@@ -201,9 +201,9 @@ size_flags_horizontal = 4
 custom_constants/separation = 40
 
 [node name="Label" type="Label" parent="SpellCardTray"]
-margin_top = -50.0
+margin_top = 145.0
 margin_right = 120.0
-margin_bottom = -7.0
+margin_bottom = 188.0
 size_flags_horizontal = 4
 text = "AAAAA"
 
@@ -214,3 +214,12 @@ margin_right = 270.0
 margin_bottom = 188.0
 size_flags_horizontal = 4
 text = "BBBBB"
+
+[node name="StartOfLevelTextLabel" type="Label" parent="."]
+anchor_left = 0.275
+anchor_top = 0.2
+anchor_right = 0.725
+anchor_bottom = 0.8
+text = "Lorem ipsum etc."
+align = 1
+autowrap = true

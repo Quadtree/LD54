@@ -257,6 +257,8 @@ public class Default : Control
 
             rot += 5f;
         }
+
+        if (Input.IsMouseButtonPressed((int)ButtonList.Left)) this.FindChildByName<Label>("StartOfLevelTextLabel").Visible = false;
     }
 
     public void ComputeAvailableSpells()
@@ -363,6 +365,8 @@ public class Default : Control
         MS.Combatants[1].HP = level.EnemyHP;
         MS.AIMinSPToCast = level.AIMinSPToCast;
         MS.EnemyAvailableSpells = level.EnemySpells.Select(it => PossibleSpells[(int)it]).ToArray();
+
+        this.FindChildByName<Label>("StartOfLevelTextLabel").Text = level.StartOfLevelText;
 
         CS[0].FindChildByName<Sprite>("Sprite2").Modulate = Colors.SandyBrown;
         CS[1].FindChildByName<Sprite>("Sprite2").Modulate = level.EnemyMageRobeColor;

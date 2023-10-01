@@ -21,6 +21,9 @@ public class BaseLevel : Node2D
     [Export]
     public Color EnemyMageRobeColor;
 
+    [Export]
+    public string StartOfLevelText;
+
     public override void _Ready()
     {
 

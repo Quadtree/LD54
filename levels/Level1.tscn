@@ -4,6 +4,7 @@
 
 [node name="BaseLevel" instance=ExtResource( 1 )]
 EnemyMageRobeColor = Color( 1, 0.427451, 0.294118, 1 )
+StartOfLevelText = "Welcome to the Spellfire Tournament! Your first opponent looks pretty easy. Just click on Burning Bolt, and click in the rune grid on the left to cast it! Then press end turn. Keep it up and you'll probably win eventually."
 
 [node name="TileMap" parent="." index="0"]
 tile_data = PoolIntArray( 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 262145, 1, 0, 262146, 1, 0, 327681, 1, 0, 327682, 1, 0 )
