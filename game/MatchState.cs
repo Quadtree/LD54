@@ -55,6 +55,8 @@ public class MatchState
         if (spell.IsReaction && CurrentPhase != Phase.Reaction) { return ("Incorrect phase"); }
         if (!spell.IsReaction && CurrentPhase != Phase.Main) { return ("Incorrect phase"); }
 
+        if (spell.Footprint.Select(it => it + cell).Any(it => !Combatants[casterId].Grid.IsCellInBounds(it) || Combatants[casterId].Grid.ImminentSpells[it.x, it.y])) return "Already casting a spell there!";
+
         spell.StartCast(Combatants[casterId], Combatants[targetId], cell);
         SpellsCastSoFarThisTurn++;
 
