@@ -55,6 +55,8 @@ public class Default : Control
 
     public List<Tuple<int, int, string>> SpellInFlightQueue = new List<Tuple<int, int, string>>();
 
+    public static int CurrentLevel = 1;
+
     public override void _Ready()
     {
         var c1 = this.FindChildByName<CombatantStatus>("CombatantStatus");
@@ -74,7 +76,7 @@ public class Default : Control
             for (var i = 0; i < PossibleSpells.Length; ++i) if (PossibleSpells[i] == spell && SPELL_TEXTURES[i] != "") AddSpellInFlight(from, to, SPELL_TEXTURES[i]);
         });
 
-        LoadLevel("res://levels/Level1.tscn");
+        LoadLevel($"res://levels/Level{CurrentLevel}.tscn");
 
         MS.StartGame();
         ComputeAvailableSpells();
@@ -120,6 +122,16 @@ public class Default : Control
         {
             //this.FindChildrenByType<AnimationPlayer>().Last().Play("Explode");
             AddSpellInFlight(0, 1, "res://textures/feedback.png");
+        }
+
+        if (OS.IsDebugBuild() && Input.IsActionJustPressed("cheat_deal_damage"))
+        {
+            MS.Combatants[1].TakeDamage(5);
+        }
+
+        if (OS.IsDebugBuild() && Input.IsActionJustPressed("cheat_self_damage"))
+        {
+            MS.Combatants[0].TakeDamage(5);
         }
 
         if (Input.IsActionJustPressed("end_turn"))
