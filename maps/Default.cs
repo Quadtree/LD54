@@ -114,7 +114,7 @@ public class Default : Control
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
-        if (GetTree().Root.FindChildByName<AudioStreamPlayer>("BGMPlayer") == null)
+        if (GetTree().Root.FindChildByName<AudioStreamPlayer>("BGMPlayer") == null && !OS.IsDebugBuild())
         {
             var bgmPlayer = new AudioStreamPlayer();
             bgmPlayer.Stream = GD.Load<AudioStream>("res://music/bgm.ogg");
