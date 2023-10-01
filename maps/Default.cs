@@ -330,6 +330,7 @@ public class Default : Control
         }
         else
         {
+            SelectedSpell = null;
             MS.EndTurn();
         }
     }
