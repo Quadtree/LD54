@@ -46,6 +46,9 @@ All spells have some potential traits like:
 # Names
 "Spellfire"
 
+# Music
+- 3275410465
+
 # Graphics
 We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on my 4K screen.
 
@@ -68,3 +71,4 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 - Some way to tell where you're targeting on the other side
 - Sound
 - Music
+
