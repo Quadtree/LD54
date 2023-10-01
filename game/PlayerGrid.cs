@@ -1,3 +1,5 @@
+using Godot;
+
 public class PlayerGrid
 {
     public int Width => 7;
@@ -22,6 +24,9 @@ public class PlayerGrid
 
         CellsUsed = new bool[Width, Height];
         ImminentSpells = new bool[Width, Height];
+
+        SpellOverlays = new SpellOverlay[Width, Height];
+        FaintSpellOverlays = new SpellOverlay[Width, Height];
     }
 
     public bool IsCellOpen(IntVec2 pos)
@@ -38,4 +43,14 @@ public class PlayerGrid
         if (pos.x < 0 || pos.y < 0 || pos.x >= Width || pos.y >= Height) return false;
         return true;
     }
+
+    public struct SpellOverlay
+    {
+        public bool Valid;
+        public byte RuneId;
+        public Color Color;
+    }
+
+    public SpellOverlay[,] SpellOverlays;
+    public SpellOverlay[,] FaintSpellOverlays;
 }
