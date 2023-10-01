@@ -9,7 +9,7 @@ public class SpellCard : TextureRect
 
     public override void _Ready()
     {
-        this.Connect("gui_event", this, nameof(HandleEvent));
+        //this.Connect("gui_event", this, nameof(HandleEvent));
         MouseFilter = MouseFilterEnum.Stop;
     }
 
@@ -28,28 +28,28 @@ public class SpellCard : TextureRect
         //GD.Print(GetViewport().GetMousePosition());
     }
 
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        base._UnhandledInput(@event);
+    // public override void _UnhandledInput(InputEvent @event)
+    // {
+    //     base._UnhandledInput(@event);
 
 
-    }
+    // }
 
-    public override void _Input(InputEvent @event)
-    {
-        base._Input(@event);
+    // public override void _Input(InputEvent @event)
+    // {
+    //     base._Input(@event);
 
-        if (@event is InputEventMouseMotion iem)
-        {
-            //GD.Print(@event);
-            LastMouseInPos = GetViewport().GetMousePosition();
-        }
-    }
+    //     if (@event is InputEventMouseMotion iem)
+    //     {
+    //         //GD.Print(@event);
+    //         LastMouseInPos = GetViewport().GetMousePosition();
+    //     }
+    // }
 
-    void HandleEvent(InputEvent @event)
-    {
-        GD.Print(@event);
-    }
+    // void HandleEvent(InputEvent @event)
+    // {
+    //     GD.Print(@event);
+    // }
 
-    public bool IsMouseHovering => LastMouseInPos == GetViewport().GetMousePosition();
+    public bool IsMouseHovering => new Rect2(new Vector2(0, 0), this.RectSize).HasPoint(GetLocalMousePosition());
 }

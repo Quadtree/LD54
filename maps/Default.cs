@@ -236,7 +236,7 @@ public class Default : Control
         {
             if (sc.IsMouseHovering)
             {
-                //GD.Print("X");
+                GD.Print("X");
             }
         }
     }
