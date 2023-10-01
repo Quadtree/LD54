@@ -66,6 +66,7 @@ public class Default : Control
         this.FindChildByName<Control>("Modal").FindChildByType<Button>().Connect("pressed", this, nameof(OnModalProceedPressed));
         this.FindChildByName<Button>("TryNotCastingSpellButton").Connect("pressed", this, nameof(OnTryNotCastingSpellButton));
         this.FindChildByName<Button>("CancelNotCastingSpellButton").Connect("pressed", this, nameof(OnCancelNotCastingSpellButton));
+        this.FindChildByName<Button>("RestartLevelButton").Connect("pressed", this, nameof(OnRestartLevelButton));
 
         var c1 = this.FindChildByName<CombatantStatus>("CombatantStatus");
         var c2 = this.FindChildByName<CombatantStatus>("CombatantStatus2");
@@ -349,5 +350,10 @@ public class Default : Control
     void OnCancelNotCastingSpellButton()
     {
         this.FindChildByName<Control>("NotCastingSpellModal").Visible = false;
+    }
+
+    void OnRestartLevelButton()
+    {
+        GetTree().ChangeScene("res://maps/Default.tscn");
     }
 }
