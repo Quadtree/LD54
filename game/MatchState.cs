@@ -27,6 +27,8 @@ public class MatchState
 
     public Spell[] EnemyAvailableSpells;
 
+    public int SpellsCastSoFarThisTurn;
+
     public void StartGame()
     {
         Combatants[0].SP += 1;
@@ -88,6 +90,7 @@ public class MatchState
             GD.Print($"Now turn for player {CurrentTurn}");
             Combatants[CurrentTurn].SP += 2;
             Combatants[CurrentTurn].Shield = 0;
+            SpellsCastSoFarThisTurn = 0;
             CurrentPhase = Phase.Main;
 
             foreach (var it in ChangeListeners) it();
