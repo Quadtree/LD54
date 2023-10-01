@@ -53,7 +53,6 @@ All spells have some potential traits like:
 We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on my 4K screen.
 
 # TODO
-- Figure out what caused the freeze in level 6
 
 # Done
 - Restarting levels on defeat
@@ -71,4 +70,4 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 - Some way to tell where you're targeting on the other side
 - Sound
 - Music
-
+- Figure out what caused the freeze in level 6
