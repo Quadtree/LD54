@@ -267,9 +267,9 @@ public class Default : Control
 
         AvailableSpells = availSpells.ToArray();
 
-        if (this.FindChildByName<HBoxContainer>("SpellCardTray") is HBoxContainer sct)
+        if (this.FindChildByName<HBoxContainer>("SpellCardTray") is var sct)
         {
-            
+
         }
     }
 
