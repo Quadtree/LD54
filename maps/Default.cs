@@ -234,10 +234,16 @@ public class Default : Control
 
         foreach (var sc in this.FindChildrenByType<SpellCard>())
         {
+            if (!SpellCardHeights.ContainsKey(sc.Spell)) SpellCardHeights[sc.Spell] = 0;
+
             if (sc.IsMouseHovering)
             {
-                GD.Print("X");
+                SpellCardHeights[sc.Spell] = (-30 - SpellCardHeights[sc.Spell]) * 4 * delta;
             }
+
+            GD.Print(SpellCardHeights[sc.Spell]);
+
+            sc.RectPosition = new Vector2(sc.RectPosition.x, SpellCardHeights[sc.Spell]);
         }
     }
 
