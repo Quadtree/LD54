@@ -212,7 +212,7 @@ public class Default : Control
 
                 if (SelectedSpell is Counterspell)
                 {
-                    CS[1].Grid1.HoveredCellsSource = () => SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase)).ToArray();
+                    CS[1].Grid1.HoveredCellsSource = () => SelectedSpell?.Footprint?.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase))?.ToArray() ?? Array.Empty<Tuple<IntVec2, Grid1.HoverType>>();
                 }
             }
         }
@@ -265,7 +265,8 @@ public class Default : Control
 
         if (Input.IsMouseButtonPressed((int)ButtonList.Left)) this.FindChildByName<Label>("StartOfLevelTextLabel").Visible = false;
 
-        //if (MS.CurrentPhase == MatchState.Phase.Reaction && MS.CurrentTurn == 1 && AvailableSpells.Length == 0) PlayerInitatedEndTurn();
+        // automatic end turn!
+        if (MS.CurrentPhase == MatchState.Phase.Reaction && MS.CurrentTurn == 1 && AvailableSpells.Length == 0) PlayerInitatedEndTurn();
     }
 
     public void ComputeAvailableSpells()

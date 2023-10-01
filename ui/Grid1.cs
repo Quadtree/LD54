@@ -92,11 +92,7 @@ public class Grid1 : GridContainer
                     else
                     {
                         //Cells[x, y].Visible = true;
-                        if (grid.ImminentSpells[x, y])
-                        {
-                            Cells[x, y].Modulate = Colors.Yellow;
-                        }
-                        else if (CellHovers[x, y] == HoverType.SpellBase && grid.CellsUsed[x, y])
+                        if (CellHovers[x, y] == HoverType.SpellBase && grid.CellsUsed[x, y])
                         {
                             Cells[x, y].Modulate = Colors.Red;
                         }
@@ -107,6 +103,10 @@ public class Grid1 : GridContainer
                         else if (CellHovers[x, y] == HoverType.SpellBase)
                         {
                             Cells[x, y].Modulate = Colors.Green;
+                        }
+                        else if (grid.ImminentSpells[x, y])
+                        {
+                            Cells[x, y].Modulate = Colors.Yellow;
                         }
                         else
                         {
