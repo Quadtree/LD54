@@ -24,6 +24,8 @@ public class SpellCard : TextureRect
             this.FindChildByName<Label>("ReactionLabel").Visible = spell.IsReaction;
             this.FindChildByName<Label>("InstantLabel").Visible = spell.IsInstant;
         }
+
+        GD.Print(GetViewport().GetMousePosition());
     }
 
     public override void _UnhandledInput(InputEvent @event)
