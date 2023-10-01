@@ -4,6 +4,8 @@ using Godot;
 
 public class BasicAI
 {
+    public static ulong LastAITick = 0;
+
     private static Spell[] POSSIBLE_SPELLS = new Spell[]{
         new Feedback(),
         new FlameWave(),
@@ -20,6 +22,8 @@ public class BasicAI
 
             for (var i = 0; i < 10_000; ++i)
             {
+                LastAITick = Time.GetTicksMsec();
+
                 var trgPos = new IntVec2(
                     Util.RandInt(0, ms.Combatants[myId].Grid.Width),
                     Util.RandInt(0, ms.Combatants[myId].Grid.Height)
