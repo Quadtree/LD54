@@ -156,7 +156,10 @@ public class Default : Control
                 else
                 {
                     CurrentLevel++;
-                    GetTree().ChangeScene("res://maps/Default.tscn");
+                    if (CurrentLevel < 7)
+                        GetTree().ChangeScene("res://maps/Default.tscn");
+                    else
+                        GetTree().ChangeScene("res://maps/VictoryScreen.tscn");
                 }
             });
         }
