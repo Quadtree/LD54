@@ -240,7 +240,7 @@ public class Default : Control
 
         SpellInFlight = new Sprite();
         AddChild(SpellInFlight);
-        SpellInFlight.Scale = new Vector2(4, 4);
+        SpellInFlight.Scale = new Vector2(8, 8);
         SpellInFlight.GlobalPosition = fromPos;
         SpellInFlight.LookAt(toPos);
         SpellInFlight.Texture = GD.Load<Texture>(texture);
