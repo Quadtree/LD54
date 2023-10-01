@@ -133,13 +133,11 @@ public class Default : Control
         {
             Operation = AI.RunMainTurn(MS.CurrentTurn, MS).GetEnumerator();
         }
-
-        if (Operation == null && MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Reaction)
+        else if (Operation == null && MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Reaction)
         {
             Operation = AI.RunReactionTurn(MS.CurrentTurn, MS).GetEnumerator();
         }
-
-        if (!IsCurrentlyPlayersTurn && Time.GetTicksMsec() - BasicAI.LastAITick > 5_000)
+        else if (!IsCurrentlyPlayersTurn && Time.GetTicksMsec() - BasicAI.LastAITick > 5_000)
         {
             GD.Print("AI seems to have frozen! Trying to end turn!");
             MS.EndTurn();
