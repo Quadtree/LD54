@@ -30,6 +30,16 @@ public class Default : Control
         Feedback,
     }
 
+    public static string[] SPELL_TEXTURES = new string[]{
+        "res://textures/flame_lance.png",
+        "res://textures/fire_particle.png",
+        "",
+        "res://textures/counterspell.png",
+        "",
+        "",
+        "res://textures/feedback.png",
+    };
+
     CombatantStatus[] CS;
 
     IEnumerator<bool> Operation;
@@ -59,8 +69,12 @@ public class Default : Control
         c2.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
 
         MS.ChangeListeners.Add(ComputeAvailableSpells);
+        MS.SpellCastListeners.Add((from, to, spell) =>
+        {
+            for (var i = 0; i < PossibleSpells.Length; ++i) if (PossibleSpells[i] == spell && SPELL_TEXTURES[i] != "") AddSpellInFlight(from, to, SPELL_TEXTURES[i]);
+        });
 
-        LoadLevel("res://levels/Level4.tscn");
+        LoadLevel("res://levels/Level1.tscn");
 
         MS.StartGame();
         ComputeAvailableSpells();
