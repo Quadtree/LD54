@@ -232,7 +232,7 @@ public class Default : Control
             }
         }
 
-        var rot = -10f;
+        var rot = -2f * AvailableSpells.Length;
 
         foreach (var sc in this.FindChildrenByType<SpellCard>())
         {
@@ -247,10 +247,12 @@ public class Default : Control
 
             SpellCardHeights[sc.Spell] += (dest - SpellCardHeights[sc.Spell]) * 4 * delta;
 
-            GD.Print(SpellCardHeights[sc.Spell]);
+            //GD.Print(SpellCardHeights[sc.Spell]);
 
             sc.RectPosition = new Vector2(sc.RectPosition.x, SpellCardHeights[sc.Spell]);
             sc.RectRotation = rot;
+
+            rot += 5f;
         }
     }
 
