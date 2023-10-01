@@ -339,8 +339,11 @@ public class Default : Control
 
     void OnTryNotCastingSpellButton()
     {
+        this.FindChildByName<Control>("NotCastingSpellModal").Visible = false;
         Loser = 0;
-        CS[i].FindChildByType<AnimationPlayer>().Play("Death");
+        CS[0].FindChildByType<AnimationPlayer>().Play("Dropped");
+        DefeatTextHeadline = "Orange Card";
+        DefeatTextBody = "Well that clarifies things.";
     }
 
     void OnCancelNotCastingSpellButton()
