@@ -169,23 +169,23 @@ margin_bottom = 55.0
 text = "Oh right, better cast a spell!"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
-margin_left = 10.0
-margin_top = 15.0
-margin_right = 665.0
-margin_bottom = 100.0
+margin_left = 39.0
+margin_top = 24.0
+margin_right = 694.0
+margin_bottom = 109.0
 custom_constants/separation = 100
 
 [node name="RestartLevelButton" type="Button" parent="HBoxContainer2"]
-margin_right = 213.0
-margin_bottom = 55.0
+margin_right = 189.0
+margin_bottom = 43.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Restart Level"
 
 [node name="EndTurnButton" type="Button" parent="HBoxContainer2"]
-margin_left = 313.0
-margin_right = 479.0
-margin_bottom = 55.0
+margin_left = 289.0
+margin_right = 431.0
+margin_bottom = 43.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "End Turn"
