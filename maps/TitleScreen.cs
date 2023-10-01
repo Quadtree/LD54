@@ -15,6 +15,7 @@ public class TitleScreen : Control
 
     void OnStartGameButton()
     {
+        Default.CurrentLevel = 1;
         GetTree().ChangeScene("res://maps/Default.tscn");
     }
 
