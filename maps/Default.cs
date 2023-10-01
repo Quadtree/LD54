@@ -281,17 +281,6 @@ public class Default : Control
 
             foreach (var it in AvailableSpells)
             {
-                // if (!first)
-                // {
-                //     var spacer = new Control();
-                //     spacer.SizeFlagsHorizontal = (int)Control.SizeFlags.Expand;
-                //     sct.AddChild(spacer);
-                // }
-                // else
-                // {
-                //     first = false;
-                // }
-
                 var card = GD.Load<PackedScene>("res://ui/SpellCard.tscn").Instance<SpellCard>();
                 card.Spell = it.Item2;
                 sct.AddChild(card);
