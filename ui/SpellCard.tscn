@@ -10,6 +10,7 @@ margin_top = 51.0
 margin_right = 115.0
 margin_bottom = 51.0
 rect_min_size = Vector2( 180, 336 )
+mouse_filter = 0
 texture = ExtResource( 2 )
 expand = true
 script = ExtResource( 1 )
