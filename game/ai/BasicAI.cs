@@ -37,6 +37,7 @@ public class BasicAI
 
                 if (Time.GetTicksMsec() - startTimeMs > 8)
                 {
+                    //GD.Print($"AI is yielding at step {i}");
                     yield return false;
                     startTimeMs = Time.GetTicksMsec();
                 }

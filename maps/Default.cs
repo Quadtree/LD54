@@ -126,7 +126,11 @@ public class Default : Control
 
         if (Operation != null)
         {
-            if (Operation.MoveNext()) Operation = null;
+            if (!Operation.MoveNext())
+            {
+                GD.Print("AI reports complete!");
+                Operation = null;
+            }
         }
 
         if (Operation == null && MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Main)
