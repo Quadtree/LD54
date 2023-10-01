@@ -238,10 +238,14 @@ public class Default : Control
         {
             if (!SpellCardHeights.ContainsKey(sc.Spell)) SpellCardHeights[sc.Spell] = 0;
 
+            float dest = 0;
+
             if (sc.IsMouseHovering)
             {
-                SpellCardHeights[sc.Spell] += (-30 - SpellCardHeights[sc.Spell]) * 4 * delta;
+                dest = -30;
             }
+
+            SpellCardHeights[sc.Spell] += (dest - SpellCardHeights[sc.Spell]) * 4 * delta;
 
             GD.Print(SpellCardHeights[sc.Spell]);
 
