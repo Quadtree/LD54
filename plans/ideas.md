@@ -42,12 +42,14 @@ All spells have some potential traits like:
 # Graphics
 We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on my 4K screen.
 
-
 # TODO
-- Final graphics for runes
 - Advancing from one level to the next
 - Restarting levels
 - Restarting levels on defeat
 - Title screen
+- Prevent AI from doubling up their spells
 - Sound
 - Music
+
+# Done
+- Final graphics for runes
