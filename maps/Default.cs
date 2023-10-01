@@ -43,6 +43,8 @@ public class Default : Control
     public Sprite SpellInFlight;
     public int SpellInFlightTargetId;
 
+    public List<Tuple<int, int, string>> SpellInFlightQueue = new List<Tuple<int, int, string>>();
+
     public override void _Ready()
     {
         var c1 = this.FindChildByName<CombatantStatus>("CombatantStatus");
@@ -135,6 +137,14 @@ public class Default : Control
             else
                 SpellInFlight.GlobalPosition += (toPos - SpellInFlight.GlobalPosition).Normalized() * 2000 * delta;
         }
+        else
+        {
+            if (SpellInFlightQueue.Any())
+            {
+                DoAddSpellInFlight(SpellInFlightQueue[0].Item1, SpellInFlightQueue[0].Item2, SpellInFlightQueue[0].Item3);
+                SpellInFlightQueue.RemoveAt(0);
+            }
+        }
     }
 
     public void ComputeAvailableSpells()
@@ -205,6 +215,11 @@ public class Default : Control
     }
 
     public void AddSpellInFlight(int fromId, int toId, string texture)
+    {
+        SpellInFlightQueue.Add(Tuple.Create(fromId, toId, texture));
+    }
+
+    public void DoAddSpellInFlight(int fromId, int toId, string texture)
     {
         var fromPos = CS[fromId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
         var toPos = CS[toId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
