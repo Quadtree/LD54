@@ -25,4 +25,6 @@ public class Shield : Spell
     }
 
     public override string Desc => "Adds 4 shield. Shield dissipates at the start of your turn";
+
+    public override string SoundEffect => "res://sounds/shield.wav";
 }

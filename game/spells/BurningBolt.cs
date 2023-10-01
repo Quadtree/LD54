@@ -20,4 +20,6 @@ public class BurningBolt : Spell
     public override string Name => "Burning Bolt";
 
     public override string Desc => "Deals 2 damage. Click on this card and click on the left grid to cast";
+
+    public override string SoundEffect => "res://sounds/burning_bolt.wav";
 }

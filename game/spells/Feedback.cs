@@ -39,4 +39,6 @@ public class Feedback : Spell
     }
 
     public override string Desc => "Deals 8 damage if the matching spot on the enemy grid has a 3x3 area filled";
+
+    public override string SoundEffect => "res://sounds/feedback.wav";
 }

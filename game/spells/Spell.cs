@@ -20,6 +20,8 @@ public class Spell
     public virtual Color RuneColor => Colors.White;
     public virtual byte RuneType => 0;
 
+    public virtual string SoundEffect => "";
+
     public virtual bool IsValidAtPoint(IntVec2 point, PlayerGrid grid, PlayerGrid enemyGrid)
     {
         return Footprint.All(it => grid.IsCellOpen(point + it));

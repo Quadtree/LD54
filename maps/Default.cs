@@ -53,7 +53,7 @@ public class Default : Control
     public Sprite SpellInFlight;
     public int SpellInFlightTargetId;
 
-    public List<Tuple<int, int, string>> SpellInFlightQueue = new List<Tuple<int, int, string>>();
+    public List<Tuple<int, int, string, string>> SpellInFlightQueue = new List<Tuple<int, int, string, string>>();
 
     public static int CurrentLevel = 5;
 
@@ -85,7 +85,7 @@ public class Default : Control
         MS.ChangeListeners.Add(ComputeAvailableSpells);
         MS.SpellCastListeners.Add((from, to, spell) =>
         {
-            for (var i = 0; i < PossibleSpells.Length; ++i) if (PossibleSpells[i] == spell && SPELL_TEXTURES[i] != "") AddSpellInFlight(from, to, SPELL_TEXTURES[i]);
+            for (var i = 0; i < PossibleSpells.Length; ++i) if (PossibleSpells[i] == spell && SPELL_TEXTURES[i] != "") AddSpellInFlight(from, to, SPELL_TEXTURES[i], spell.SoundEffect);
         });
 
         LoadLevel($"res://levels/Level{CurrentLevel}.tscn");
@@ -181,7 +181,7 @@ public class Default : Control
         if (OS.IsDebugBuild() && Input.IsActionJustPressed("test"))
         {
             //this.FindChildrenByType<AnimationPlayer>().Last().Play("Explode");
-            AddSpellInFlight(0, 1, "res://textures/feedback.png");
+            //AddSpellInFlight(0, 1, "res://textures/feedback.png");
         }
 
         if (OS.IsDebugBuild() && Input.IsActionJustPressed("cheat_deal_damage"))
@@ -232,7 +232,7 @@ public class Default : Control
         {
             if (SpellInFlightQueue.Any())
             {
-                DoAddSpellInFlight(SpellInFlightQueue[0].Item1, SpellInFlightQueue[0].Item2, SpellInFlightQueue[0].Item3);
+                DoAddSpellInFlight(SpellInFlightQueue[0].Item1, SpellInFlightQueue[0].Item2, SpellInFlightQueue[0].Item3, SpellInFlightQueue[0].Item4);
                 SpellInFlightQueue.RemoveAt(0);
             }
         }
@@ -383,12 +383,12 @@ public class Default : Control
         CS[1].FindChildByName<Sprite>("Sprite2").Modulate = level.EnemyMageRobeColor;
     }
 
-    public void AddSpellInFlight(int fromId, int toId, string texture)
+    public void AddSpellInFlight(int fromId, int toId, string texture, string soundEffect)
     {
-        SpellInFlightQueue.Add(Tuple.Create(fromId, toId, texture));
+        SpellInFlightQueue.Add(Tuple.Create(fromId, toId, texture, soundEffect));
     }
 
-    public void DoAddSpellInFlight(int fromId, int toId, string texture)
+    public void DoAddSpellInFlight(int fromId, int toId, string texture, string soundEffect)
     {
         var fromPos = CS[fromId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
         var toPos = CS[toId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
@@ -400,6 +400,8 @@ public class Default : Control
         SpellInFlight.LookAt(toPos);
         SpellInFlight.Texture = GD.Load<Texture>(texture);
         SpellInFlightTargetId = toId;
+
+        Util.SpawnOneShotSound(GD.Load<AudioStream>(soundEffect), this);
     }
 
     Action ModalProceedPressed;

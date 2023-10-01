@@ -27,4 +27,6 @@ public class Counterspell : Spell
     }
 
     public override string Desc => "Adds a block to the enemy grid, which may cause their spell to fizzle";
+
+    public override string SoundEffect => "res://sounds/counterspell.wav";
 }

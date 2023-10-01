@@ -29,4 +29,6 @@ public class FlameWave : Spell
     public override string Name => "Flame Lance";
 
     public override string Desc => "Deals 7 damage";
+
+    public override string SoundEffect => "res://sounds/flame_lance.wav";
 }
