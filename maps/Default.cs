@@ -56,7 +56,7 @@ public class Default : Control
 
     public List<Tuple<int, int, string, string>> SpellInFlightQueue = new List<Tuple<int, int, string, string>>();
 
-    public static int CurrentLevel = 1;
+    public static int CurrentLevel = 2;
 
     int? Loser;
     string DefeatTextHeadline = "";
@@ -247,6 +247,11 @@ public class Default : Control
         if (OS.IsDebugBuild() && Input.IsActionJustPressed("cheat_self_damage"))
         {
             MS.Combatants[0].TakeDamage(5);
+        }
+
+        if (OS.IsDebugBuild() && Input.IsActionJustPressed("cheat_free_sp"))
+        {
+            MS.Combatants[0].SP += 10;
         }
 
         if (Input.IsActionJustPressed("end_turn"))
