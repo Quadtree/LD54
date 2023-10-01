@@ -57,3 +57,30 @@ margin_left = 1685.0
 margin_right = 1749.0
 margin_bottom = 653.0
 Flipped = true
+
+[node name="Modal" type="VBoxContainer" parent="."]
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+
+[node name="Headline" type="Label" parent="Modal"]
+margin_right = 960.0
+margin_bottom = 14.0
+text = "<HEADLINE!>"
+align = 1
+
+[node name="Body" type="Label" parent="Modal"]
+margin_top = 18.0
+margin_right = 960.0
+margin_bottom = 32.0
+text = "<BODY TEXT!>"
+align = 1
+
+[node name="Button" type="Button" parent="Modal"]
+margin_left = 448.0
+margin_top = 36.0
+margin_right = 512.0
+margin_bottom = 56.0
+size_flags_horizontal = 4
+text = "Proceed"
