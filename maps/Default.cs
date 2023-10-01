@@ -64,6 +64,8 @@ public class Default : Control
     public override void _Ready()
     {
         this.FindChildByName<Control>("Modal").FindChildByType<Button>().Connect("pressed", this, nameof(OnModalProceedPressed));
+        this.FindChildByName<Button>("TryNotCastingSpellButton").Connect("pressed", this, nameof(OnTryNotCastingSpellButton));
+        this.FindChildByName<Button>("CancelNotCastingSpellButton").Connect("pressed", this, nameof(OnCancelNotCastingSpellButton));
 
         var c1 = this.FindChildByName<CombatantStatus>("CombatantStatus");
         var c2 = this.FindChildByName<CombatantStatus>("CombatantStatus2");
@@ -333,5 +335,16 @@ public class Default : Control
     void OnModalProceedPressed()
     {
         ModalProceedPressed?.Invoke();
+    }
+
+    void OnTryNotCastingSpellButton()
+    {
+        Loser = 0;
+        CS[i].FindChildByType<AnimationPlayer>().Play("Death");
+    }
+
+    void OnCancelNotCastingSpellButton()
+    {
+        this.FindChildByName<Control>("NotCastingSpellModal").Visible = false;
     }
 }
