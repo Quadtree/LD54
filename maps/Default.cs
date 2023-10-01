@@ -58,6 +58,8 @@ public class Default : Control
     public static int CurrentLevel = 1;
 
     int? Loser;
+    string DefeatTextHeadline = "";
+    string DefeatTextBody = "";
 
     public override void _Ready()
     {
@@ -118,9 +120,32 @@ public class Default : Control
                 {
                     Loser = i;
                     CS[i].FindChildByType<AnimationPlayer>().Play("Death");
+
                     break;
                 }
             }
+        }
+
+        if (Loser is int loserNotNull && CS[loserNotNull].FindChildByType<AnimationPlayer>().IsPlaying() == false)
+        {
+            if (DefeatTextHeadline == "")
+            {
+                if (Loser == 0) DefeatTextHeadline = "Defeat!";
+                else DefeatTextHeadline = "Victory!";
+            }
+
+            PopModal(DefeatTextHeadline, DefeatTextBody, () =>
+            {
+                if (Loser == 0)
+                {
+                    GetTree().ChangeScene("res://maps/Default.tscn");
+                }
+                else
+                {
+                    CurrentLevel++;
+                    GetTree().ChangeScene("res://maps/Default.tscn");
+                }
+            });
         }
 
         // stop the player from doing anything if it's not their turn
@@ -278,9 +303,10 @@ public class Default : Control
 
     Action ModalProceedPressed;
 
-    public void ShowModal(string headline, string body, Action proceed)
+    public void PopModal(string headline, string body, Action proceed)
     {
         var modal = this.FindChildByName<Control>("Modal");
+        modal.Visible = true;
         modal.FindChildByName<Label>("Headline").Text = headline;
         modal.FindChildByName<Label>("Body").Text = body;
         ModalProceedPressed = proceed;
