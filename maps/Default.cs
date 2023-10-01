@@ -184,7 +184,7 @@ public class Default : Control
 
         if (Input.IsActionJustPressed("end_turn"))
         {
-            MS.EndTurn();
+            PlayerInitatedEndTurn();
         }
 
         for (var i = 0; i < 2; ++i)
@@ -256,6 +256,12 @@ public class Default : Control
         }
 
         AvailableSpells = availSpells.ToArray();
+    }
+
+    public void PlayerInitatedEndTurn()
+    {
+        if (MS.SpellsCastSoFarThisTurn == 0) 
+        MS.EndTurn();
     }
 
     public void LoadLevel(string resName)
