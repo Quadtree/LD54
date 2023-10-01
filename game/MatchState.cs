@@ -78,8 +78,8 @@ public class MatchState
         {
             foreach (var it in PendingSpells)
             {
-                it.Item1.FinishCasting(Combatants[CurrentTurn], Combatants[1 - CurrentTurn], it.Item2);
-                foreach (var ls in SpellCastListeners) ls(CurrentTurn, 1 - CurrentTurn, it.Item1);
+                if (it.Item1.FinishCasting(Combatants[CurrentTurn], Combatants[1 - CurrentTurn], it.Item2))
+                    foreach (var ls in SpellCastListeners) ls(CurrentTurn, 1 - CurrentTurn, it.Item1);
             }
 
             PendingSpells.Clear();
