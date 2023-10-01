@@ -50,7 +50,6 @@ All spells have some potential traits like:
 We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on my 4K screen.
 
 # TODO
-- Some way to tell where you're targeting on the other side
 - Sound
 - Music
 
@@ -67,3 +66,4 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 - Start of level texts
 - Spell descriptions on cards
 - Prevent AI from doubling up their spells
+- Some way to tell where you're targeting on the other side
