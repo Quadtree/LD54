@@ -7,7 +7,7 @@ public class Spell
 {
     public virtual string Name => this.GetType().ToString();
 
-    public virtual string DescText => "";
+    public virtual string Desc => "";
 
     public virtual int SPCost => 1;
 

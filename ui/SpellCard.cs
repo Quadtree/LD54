@@ -16,7 +16,10 @@ public class SpellCard : TextureRect
         if (Spell is Spell spell)
         {
             this.FindChildByName<Label>("Name").Text = spell.Name;
+            this.FindChildByName<Label>("SPCost").Text = $"{spell.SPCost} SP";
             this.FindChildByName<Label>("Desc").Text = spell.Desc;
+            this.FindChildByName<Label>("ReactionLabel").Visible = spell.IsReaction;
+            this.FindChildByName<Label>("InstantLabel").Visible = spell.IsInstant;
         }
     }
 }
