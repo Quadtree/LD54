@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 
 public class Default : Control
 {
@@ -111,6 +112,16 @@ public class Default : Control
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        if (GetTree().Root.FindChildByName<AudioStreamPlayer>("BGMPlayer") == null)
+        {
+            var bgmPlayer = new AudioStreamPlayer();
+            bgmPlayer.Stream = GD.Load<AudioStream>("res://music/bgm.ogg");
+            bgmPlayer.Name = "BGMPlayer";
+            bgmPlayer.VolumeDb = -8;
+            GetTree().Root.AddChild(bgmPlayer);
+            bgmPlayer.Play();
+        }
+
         if (Operation != null)
         {
             if (Operation.MoveNext()) Operation = null;
