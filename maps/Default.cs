@@ -80,7 +80,7 @@ public class Default : Control
 
         c1.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
 
-        c2.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
+        //c2.CellClickedListeners.Add(v2 => { if (IsCurrentlyPlayersTurn) MS.TryCastSpell(SelectedSpell, 0, 1, v2); });
 
         MS.ChangeListeners.Add(ComputeAvailableSpells);
         MS.SpellCastListeners.Add((from, to, spell) =>
@@ -199,7 +199,7 @@ public class Default : Control
             PlayerInitatedEndTurn();
         }
 
-        for (var i = 0; i < 2; ++i)
+        for (var i = 0; i < 1; ++i)
         {
             CS[i].Grid1.HoveredCellsSource = () => Array.Empty<Tuple<IntVec2, Grid1.HoverType>>();
 
