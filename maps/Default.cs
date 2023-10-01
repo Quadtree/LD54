@@ -129,14 +129,20 @@ public class Default : Control
             if (Operation.MoveNext()) Operation = null;
         }
 
-        if (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Main)
+        if (Operation == null && MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Main)
         {
             Operation = AI.RunMainTurn(MS.CurrentTurn, MS).GetEnumerator();
         }
 
-        if (MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Reaction)
+        if (Operation == null && MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Reaction)
         {
             Operation = AI.RunReactionTurn(MS.CurrentTurn, MS).GetEnumerator();
+        }
+
+        if (!IsCurrentlyPlayersTurn && Time.GetTicksMsec() - BasicAI.LastAITick > 5_000)
+        {
+            GD.Print("AI seems to have frozen! Trying to end turn!");
+            MS.EndTurn();
         }
 
         if (MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Main) this.FindChildByName<Label>("TurnStatusLabel").Text = "Your main phase!";
