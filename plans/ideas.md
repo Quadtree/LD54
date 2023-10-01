@@ -44,7 +44,6 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 
 # TODO
 - Show "cards" indicating which spells are available
-- Mage robe colors
 - Start of level texts
 - Some way to tell where you're targeting on the other side
 - Prevent AI from doubling up their spells
@@ -59,3 +58,4 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 - Proper display of who's turn it is, etc
 - Font, final button graphics
 - Title screen
+- Mage robe colors
