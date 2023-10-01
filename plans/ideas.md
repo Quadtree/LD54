@@ -44,13 +44,14 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 
 # TODO
 - Restarting levels
-- Restarting levels on defeat
 - Font, final button graphics
+- Show "cards" indicating which spells are available
 - Title screen
 - Prevent AI from doubling up their spells
 - Sound
 - Music
 
 # Done
+- Restarting levels on defeat
 - Final graphics for runes
 - Advancing from one level to the next
