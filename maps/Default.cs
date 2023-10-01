@@ -124,6 +124,11 @@ public class Default : Control
             bgmPlayer.Play();
         }
 
+        if (Input.IsActionJustPressed("toggle_music"))
+        {
+            GetTree().Root.FindChildByName<AudioStreamPlayer>("BGMPlayer").Playing = !GetTree().Root.FindChildByName<AudioStreamPlayer>("BGMPlayer").Playing;
+        }
+
         if (Operation != null)
         {
             if (!Operation.MoveNext())
