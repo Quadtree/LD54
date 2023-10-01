@@ -141,7 +141,7 @@ public class Default : Control
             }
         }
 
-        if (Loser is int loserNotNull && CS[loserNotNull].FindChildByType<AnimationPlayer>().IsPlaying() == false)
+        if (Loser is int loserNotNull && CS[loserNotNull].FindChildByType<AnimationPlayer>().IsPlaying() == false && SpellInFlight == null && SpellInFlightQueue.Count == 0)
         {
             if (DefeatTextHeadline == "")
             {
