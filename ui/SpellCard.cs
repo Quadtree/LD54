@@ -10,6 +10,7 @@ public class SpellCard : TextureRect
     public override void _Ready()
     {
         this.Connect("gui_event", this, nameof(HandleEvent));
+        MouseFilter = MouseFilterEnum.Stop;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
