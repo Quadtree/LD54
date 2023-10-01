@@ -195,16 +195,22 @@ anchor_left = 0.2
 anchor_top = 0.66
 anchor_right = 0.8
 anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+custom_constants/separation = 40
 
 [node name="Label" type="Label" parent="SpellCardTray"]
 margin_top = 145.0
 margin_right = 120.0
 margin_bottom = 188.0
+size_flags_horizontal = 4
 text = "AAAAA"
 
 [node name="Label2" type="Label" parent="SpellCardTray"]
-margin_left = 128.0
+margin_left = 160.0
 margin_top = 145.0
-margin_right = 238.0
+margin_right = 270.0
 margin_bottom = 188.0
+size_flags_horizontal = 4
 text = "BBBBB"

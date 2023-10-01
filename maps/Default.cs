@@ -273,6 +273,12 @@ public class Default : Control
 
             var first = true;
 
+            {
+                var spacer1 = new Control();
+                spacer1.SizeFlagsHorizontal = (int)Control.SizeFlags.Expand;
+                sct.AddChild(spacer1);
+            }
+
             foreach (var it in AvailableSpells)
             {
                 // if (!first)
@@ -289,6 +295,12 @@ public class Default : Control
                 var card = GD.Load<PackedScene>("res://ui/SpellCard.tscn").Instance<SpellCard>();
                 card.Spell = it.Item2;
                 sct.AddChild(card);
+            }
+
+            {
+                var spacer1 = new Control();
+                spacer1.SizeFlagsHorizontal = (int)Control.SizeFlags.Expand;
+                sct.AddChild(spacer1);
             }
         }
     }
