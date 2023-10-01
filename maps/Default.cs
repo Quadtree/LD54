@@ -62,6 +62,8 @@ public class Default : Control
     string DefeatTextHeadline = "";
     string DefeatTextBody = "";
 
+    string QueuedAnimation;
+
     Dictionary<Spell, float> SpellCardHeights = new Dictionary<Spell, float>();
 
     public override void _Ready()
