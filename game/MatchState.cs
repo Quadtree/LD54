@@ -82,6 +82,7 @@ public class MatchState
             PendingSpells.Clear();
 
             Util.ZeroMemory(Combatants[CurrentTurn].Grid.ImminentSpells);
+            Util.ZeroMemory(Combatants[CurrentTurn].Grid.FaintSpellOverlays);
 
             CurrentTurn = (CurrentTurn + 1) % 2;
             GD.Print($"Now turn for player {CurrentTurn}");
@@ -104,6 +105,14 @@ public class MatchState
     {
         Util.ZeroMemory(Combatants[cmbId].Grid.ImminentSpells);
 
-        foreach (var it in PendingSpells) foreach (var it2 in it.Item1.Footprint.Select(it3 => it3 + it.Item2)) if (Combatants[cmbId].Grid.IsCellInBounds(it2)) Combatants[cmbId].Grid.ImminentSpells[it2.x, it2.y] = true;
+        foreach (var it in PendingSpells) foreach (var it2 in it.Item1.Footprint.Select(it3 => it3 + it.Item2)) if (Combatants[cmbId].Grid.IsCellInBounds(it2))
+                {
+                    Combatants[cmbId].Grid.ImminentSpells[it2.x, it2.y] = true;
+                    Combatants[cmbId].Grid.FaintSpellOverlays[it2.x, it2.y] = new PlayerGrid.SpellOverlay
+                    {
+                        Color = it.Item1.RuneColor,
+                        RuneId = (byte)(it.Item1.RuneType + 1),
+                    };
+                }
     }
 }

@@ -122,7 +122,9 @@ public class Grid1 : GridContainer
                     else if (grid.FaintSpellOverlays[x, y].RuneId > 0)
                     {
                         Cells[x, y].FindChildByType<TextureRect>().Texture = GD.Load<Texture>($"res://textures/rune{grid.FaintSpellOverlays[x, y].RuneId - 1}.png");
-                        Cells[x, y].FindChildByType<TextureRect>().Modulate = grid.FaintSpellOverlays[x, y].Color;
+                        var col = grid.FaintSpellOverlays[x, y].Color;
+                        col.a = 0.25f;
+                        Cells[x, y].FindChildByType<TextureRect>().Modulate = col;
                     }
                 }
             }
