@@ -44,3 +44,21 @@ anchor_top = 0.75
 anchor_right = 0.6
 anchor_bottom = 0.8
 text = "Start Game"
+
+[node name="LevelSelectButton" type="Button" parent="."]
+anchor_left = 0.4
+anchor_top = 0.65
+anchor_right = 0.6
+anchor_bottom = 0.7
+text = "Level Select"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 47.0
+margin_top = 44.0
+margin_right = 524.0
+margin_bottom = 1024.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_right = 477.0
+margin_bottom = 43.0
+text = "Start Level 1"
