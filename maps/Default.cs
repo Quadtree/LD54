@@ -57,6 +57,8 @@ public class Default : Control
 
     public static int CurrentLevel = 1;
 
+    int? Loser;
+
     public override void _Ready()
     {
         var c1 = this.FindChildByName<CombatantStatus>("CombatantStatus");
@@ -105,6 +107,19 @@ public class Default : Control
         this.FindChildByName<Label>("IncomingSpellsLabel").Text = $"Incoming: {string.Join(", ", MS.PendingSpells.Select(it => $"{it.Item1.Name}>{it.Item2}"))}";
 
         this.FindChildByName<Label>("AvailableSpellsLabel").Text = $"Available: {string.Join(", ", AvailableSpells.Select(it => $"{it.Item2.Name} ({it.Item1})"))}";
+
+        if (Loser == null)
+        {
+            for (var i = 0; i < 2; ++i)
+            {
+                if (MS.Combatants[i].HP <= 0)
+                {
+                    Loser = i;
+                    CS[0].FindChildByType<AnimationPlayer>().Play("Death");
+                    break;
+                }
+            }
+        }
 
         // stop the player from doing anything if it's not their turn
         if (!IsCurrentlyPlayersTurn) return;
