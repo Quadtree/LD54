@@ -224,12 +224,11 @@ public class Default : Control
         var fromPos = CS[fromId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
         var toPos = CS[toId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
 
-
         SpellInFlight = new Sprite();
         AddChild(SpellInFlight);
         SpellInFlight.Scale = new Vector2(4, 4);
-        SpellInFlight.LookAt(toPos);
         SpellInFlight.GlobalPosition = fromPos;
+        SpellInFlight.LookAt(toPos);
         SpellInFlight.Texture = GD.Load<Texture>(texture);
         SpellInFlightTargetId = toId;
     }
