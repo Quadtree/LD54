@@ -92,6 +92,12 @@ public class MatchState
 
             PendingSpells.Clear();
 
+            for (var i = 0; i < 2; ++i)
+            {
+                Util.ZeroMemory(Combatants[i].Grid.ImminentSpells);
+                Util.ZeroMemory(Combatants[i].Grid.FaintSpellOverlays);
+            }
+
             CurrentTurn = (CurrentTurn + 1) % 2;
             GD.Print($"Now turn for player {CurrentTurn}");
             Combatants[CurrentTurn].SP += 2;
