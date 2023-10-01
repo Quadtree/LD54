@@ -260,8 +260,14 @@ public class Default : Control
 
     public void PlayerInitatedEndTurn()
     {
-        if (MS.SpellsCastSoFarThisTurn == 0) 
-        MS.EndTurn();
+        if (MS.SpellsCastSoFarThisTurn == 0)
+        {
+            this.FindChildByName<Control>("NotCastingSpellModal").Visible = true;
+        }
+        else
+        {
+            MS.EndTurn();
+        }
     }
 
     public void LoadLevel(string resName)
