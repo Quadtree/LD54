@@ -243,9 +243,10 @@ public class Default : Control
             if (sc.IsMouseHovering)
             {
                 dest = -30;
+                if (Input.IsMouseButtonPressed((int)ButtonList.Left)) SelectedSpell = sc.Spell;
             }
 
-            if (SelectedSpell == sc.Spell) dest = -70;
+            if (SelectedSpell == sc.Spell) dest = -110;
 
             SpellCardHeights[sc.Spell] += (dest - SpellCardHeights[sc.Spell]) * 4 * delta;
 
