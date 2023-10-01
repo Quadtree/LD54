@@ -44,8 +44,8 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 
 # TODO
 - Font, final button graphics
-- Proper display of who's turn it is, etc
 - Show "cards" indicating which spells are available
+- Mage robe colors
 - Title screen
 - Prevent AI from doubling up their spells
 - Sound
@@ -56,3 +56,4 @@ We are doing large pixel style. 4x4 pixels on a 1080p screen, so 8x8 pixels on m
 - Final graphics for runes
 - Advancing from one level to the next
 - Restarting levels
+- Proper display of who's turn it is, etc
