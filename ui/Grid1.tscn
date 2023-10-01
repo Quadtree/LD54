@@ -15,3 +15,7 @@ margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 texture = ExtResource( 1 )
 expand = true
+
+[node name="Overlay" type="TextureRect" parent="Template"]
+anchor_right = 1.0
+anchor_bottom = 1.0

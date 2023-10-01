@@ -46,7 +46,6 @@ public class PlayerGrid
 
     public struct SpellOverlay
     {
-        public bool Valid;
         public byte RuneId;
         public Color Color;
     }

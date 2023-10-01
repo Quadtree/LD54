@@ -113,6 +113,17 @@ public class Grid1 : GridContainer
                             Cells[x, y].Modulate = Colors.Gray;
                         }
                     }
+
+                    if (grid.SpellOverlays[x, y].RuneId > 0)
+                    {
+                        Cells[x, y].FindChildByType<TextureRect>().Texture = GD.Load<Texture>($"res://textures/rune{grid.SpellOverlays[x, y].RuneId - 1}.png");
+                        Cells[x, y].FindChildByType<TextureRect>().Modulate = grid.SpellOverlays[x, y].Color;
+                    }
+                    else if (grid.FaintSpellOverlays[x, y].RuneId > 0)
+                    {
+                        Cells[x, y].FindChildByType<TextureRect>().Texture = GD.Load<Texture>($"res://textures/rune{grid.FaintSpellOverlays[x, y].RuneId - 1}.png");
+                        Cells[x, y].FindChildByType<TextureRect>().Modulate = grid.FaintSpellOverlays[x, y].Color;
+                    }
                 }
             }
         }
