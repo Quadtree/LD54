@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class SpellCard : VBoxContainer
+public class SpellCard : TextureRect
 {
     public Spell Spell;
 
