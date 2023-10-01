@@ -269,7 +269,14 @@ public class Default : Control
 
         if (this.FindChildByName<HBoxContainer>("SpellCardTray") is var sct)
         {
+            sct.ClearChildren();
 
+            foreach (var it in AvailableSpells)
+            {
+                var card = GD.Load<PackedScene>("res://ui/SpellCard.tscn").Instance<SpellCard>();
+                card.Spell = it.Item2;
+                sct.AddChild(card);
+            }
         }
     }
 
