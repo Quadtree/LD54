@@ -20,7 +20,7 @@ public class BasicAI
 
             var startTimeMs = Time.GetTicksMsec();
 
-            for (var i = 0; i < 10_000; ++i)
+            for (var i = 0; i < 100_000; ++i)
             {
                 LastAITick = Time.GetTicksMsec();
 
