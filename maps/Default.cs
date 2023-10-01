@@ -245,6 +245,8 @@ public class Default : Control
                 dest = -30;
             }
 
+            if (SelectedSpell == sc.Spell) dest = -70;
+
             SpellCardHeights[sc.Spell] += (dest - SpellCardHeights[sc.Spell]) * 4 * delta;
 
             //GD.Print(SpellCardHeights[sc.Spell]);
