@@ -19,6 +19,7 @@ public class MatchState
     public List<Tuple<Spell, IntVec2>> PendingSpells = new List<Tuple<Spell, IntVec2>>();
 
     public List<Action> ChangeListeners = new List<Action>();
+    public List<Action<int, int, Spell>> SpellCastListeners = new List<Action<int, int, Spell>>();
 
     public IReadOnlyList<Default.SpellEnum> KnownSpells = Array.Empty<Default.SpellEnum>();
 
@@ -57,6 +58,7 @@ public class MatchState
         if (spell.IsInstant)
         {
             spell.FinishCasting(Combatants[casterId], Combatants[targetId], cell);
+            foreach (var it in SpellCastListeners) it(casterId, targetId, spell);
         }
         else
         {
@@ -71,7 +73,12 @@ public class MatchState
     {
         if (CurrentPhase == Phase.Reaction)
         {
-            foreach (var it in PendingSpells) it.Item1.FinishCasting(Combatants[CurrentTurn], Combatants[1 - CurrentTurn], it.Item2);
+            foreach (var it in PendingSpells)
+            {
+                it.Item1.FinishCasting(Combatants[CurrentTurn], Combatants[1 - CurrentTurn], it.Item2);
+                foreach (var ls in SpellCastListeners) ls(CurrentTurn, 1 - CurrentTurn, it.Item1);
+            }
+
             PendingSpells.Clear();
 
             Util.ZeroMemory(Combatants[CurrentTurn].Grid.ImminentSpells);
