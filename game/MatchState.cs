@@ -56,6 +56,7 @@ public class MatchState
         if (!spell.IsReaction && CurrentPhase != Phase.Main) { return ("Incorrect phase"); }
 
         spell.StartCast(Combatants[casterId], Combatants[targetId], cell);
+        SpellsCastSoFarThisTurn++;
 
         if (spell.IsInstant)
         {

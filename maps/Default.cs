@@ -48,7 +48,7 @@ public class Default : Control
 
     Tuple<int, Spell>[] AvailableSpells = Array.Empty<Tuple<int, Spell>>();
 
-    public bool IsCurrentlyPlayersTurn => (MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Main) || (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Reaction);
+    public bool IsCurrentlyPlayersTurn => Loser == null && ((MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Main) || (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Reaction));
 
     public Sprite SpellInFlight;
     public int SpellInFlightTargetId;
@@ -123,6 +123,12 @@ public class Default : Control
 
                     break;
                 }
+            }
+
+            if (MS.CurrentPhase == MatchState.Phase.Main && MS.SpellsCastSoFarThisTurn == 0 && AvailableSpells.Length == 0)
+            {
+                Loser = MS.CurrentTurn;
+                CS[MS.CurrentTurn].FindChildByType<AnimationPlayer>().Play("Explode");
             }
         }
 
