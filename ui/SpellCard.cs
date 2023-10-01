@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public class SpellCard : TextureRect
 {
@@ -23,6 +24,16 @@ public class SpellCard : TextureRect
             this.FindChildByName<Label>("Desc").Text = spell.Desc;
             this.FindChildByName<Label>("ReactionLabel").Visible = spell.IsReaction;
             this.FindChildByName<Label>("InstantLabel").Visible = spell.IsInstant;
+
+            for (var y = 0; y < 4; ++y)
+            {
+                for (var x = 0; x < 4; ++x)
+                {
+                    var eff = new IntVec2(x - 1, y - 1);
+                    var n = y * 4 + x + 1;
+                    this.FindChildByName<TextureRect>($"PC{n}").Modulate = spell.Footprint.Contains(eff) ? Colors.White : Colors.Transparent;
+                }
+            }
         }
 
         //GD.Print(GetViewport().GetMousePosition());
