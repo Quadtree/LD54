@@ -146,7 +146,7 @@ public class Default : Control
 
         this.FindChildByName<Label>("AvailableSpellsLabel").Text = $"Available: {string.Join(", ", AvailableSpells.Select(it => $"{it.Item2.Name} ({it.Item1})"))}";
 
-        if (Loser == null)
+        if (Loser == null && SpellInFlight == null && SpellInFlightQueue.Count == 0)
         {
             for (var i = 0; i < 2; ++i)
             {
