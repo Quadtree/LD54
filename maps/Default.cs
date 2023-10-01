@@ -41,6 +41,7 @@ public class Default : Control
     public bool IsCurrentlyPlayersTurn => (MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Main) || (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Reaction);
 
     public Sprite SpellInFlight;
+    public int SpellInFlightTargetId;
 
     public override void _Ready()
     {
@@ -121,6 +122,18 @@ public class Default : Control
                 //GD.Print("CUR HOVER! " + string.Join(" ", SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase))));
                 CS[i].Grid1.HoveredCellsSource = () => SelectedSpell.Footprint.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase)).ToArray();
             }
+        }
+
+        if (SpellInFlight != null)
+        {
+            var toPos = CS[SpellInFlightTargetId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
+            if (toPos.DistanceSquaredTo(SpellInFlight.GlobalPosition) < 60 * 60)
+            {
+                SpellInFlight.GetParent().RemoveChild(SpellInFlight);
+                SpellInFlight = null;
+            }
+            else
+                SpellInFlight.GlobalPosition += (toPos - SpellInFlight.GlobalPosition).Normalized() * 2000 * delta;
         }
     }
 
@@ -203,5 +216,6 @@ public class Default : Control
         SpellInFlight.LookAt(toPos);
         SpellInFlight.GlobalPosition = fromPos;
         SpellInFlight.Texture = GD.Load<Texture>(texture);
+        SpellInFlightTargetId = toId;
     }
 }
