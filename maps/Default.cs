@@ -40,6 +40,8 @@ public class Default : Control
 
     public bool IsCurrentlyPlayersTurn => (MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Main) || (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Reaction);
 
+    public Sprite SpellInFlight;
+
     public override void _Ready()
     {
         var c1 = this.FindChildByName<CombatantStatus>("CombatantStatus");
@@ -99,7 +101,8 @@ public class Default : Control
 
         if (OS.IsDebugBuild() && Input.IsActionJustPressed("test"))
         {
-            this.FindChildrenByType<AnimationPlayer>().Last().Play("Explode");
+            //this.FindChildrenByType<AnimationPlayer>().Last().Play("Explode");
+            AddSpellInFlight(0, 1, "res://textures/feedback.png");
         }
 
         if (Input.IsActionJustPressed("end_turn"))
@@ -186,5 +189,19 @@ public class Default : Control
         MS.Combatants[1].HP = level.EnemyHP;
         MS.AIMinSPToCast = level.AIMinSPToCast;
         MS.EnemyAvailableSpells = level.EnemySpells.Select(it => PossibleSpells[(int)it]).ToArray();
+    }
+
+    public void AddSpellInFlight(int fromId, int toId, string texture)
+    {
+        var fromPos = CS[fromId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
+        var toPos = CS[toId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
+
+
+        SpellInFlight = new Sprite();
+        AddChild(SpellInFlight);
+        SpellInFlight.Scale = new Vector2(4, 4);
+        SpellInFlight.LookAt(toPos);
+        SpellInFlight.GlobalPosition = fromPos;
+        SpellInFlight.Texture = GD.Load<Texture>(texture);
     }
 }

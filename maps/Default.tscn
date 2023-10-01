@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/CombatantStatus.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maps/Default.cs" type="Script" id=2]
 [ext_resource path="res://textures/background1.png" type="Texture" id=3]
+[ext_resource path="res://textures/counterspell.png" type="Texture" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -57,3 +58,7 @@ margin_left = 1685.0
 margin_right = 1749.0
 margin_bottom = 653.0
 Flipped = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 310, 877 )
+texture = ExtResource( 4 )
