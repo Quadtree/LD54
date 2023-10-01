@@ -67,6 +67,7 @@ public class Default : Control
         this.FindChildByName<Button>("TryNotCastingSpellButton").Connect("pressed", this, nameof(OnTryNotCastingSpellButton));
         this.FindChildByName<Button>("CancelNotCastingSpellButton").Connect("pressed", this, nameof(OnCancelNotCastingSpellButton));
         this.FindChildByName<Button>("RestartLevelButton").Connect("pressed", this, nameof(OnRestartLevelButton));
+        this.FindChildByName<Button>("EndTurnButton").Connect("pressed", this, nameof(OnEndTurnButton));
 
         var c1 = this.FindChildByName<CombatantStatus>("CombatantStatus");
         var c2 = this.FindChildByName<CombatantStatus>("CombatantStatus2");
@@ -109,7 +110,10 @@ public class Default : Control
             Operation = AI.RunReactionTurn(MS.CurrentTurn, MS).GetEnumerator();
         }
 
-        this.FindChildByName<Label>("TurnStatusLabel").Text = $"{MS.CurrentTurn} / {MS.CurrentPhase}";
+        if (MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Main) this.FindChildByName<Label>("TurnStatusLabel").Text = "Your main phase!";
+        if (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Main) this.FindChildByName<Label>("TurnStatusLabel").Text = "Opponent main phase!";
+        if (MS.CurrentTurn == 0 && MS.CurrentPhase == MatchState.Phase.Reaction) this.FindChildByName<Label>("TurnStatusLabel").Text = "Opponent's chance to react!";
+        if (MS.CurrentTurn == 1 && MS.CurrentPhase == MatchState.Phase.Reaction) this.FindChildByName<Label>("TurnStatusLabel").Text = "Your chance to react!";
 
         this.FindChildByName<Label>("IncomingSpellsLabel").Text = $"Incoming: {string.Join(", ", MS.PendingSpells.Select(it => $"{it.Item1.Name}>{it.Item2}"))}";
 
@@ -355,5 +359,10 @@ public class Default : Control
     void OnRestartLevelButton()
     {
         GetTree().ChangeScene("res://maps/Default.tscn");
+    }
+
+    void OnEndTurnButton()
+    {
+        PlayerInitatedEndTurn();
     }
 }

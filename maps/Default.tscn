@@ -26,35 +26,37 @@ anchor_right = 0.954
 anchor_bottom = 0.683
 
 [node name="CombatantStatus" parent="HBoxContainer" instance=ExtResource( 1 )]
-margin_right = 64.0
+margin_right = 80.0
 margin_bottom = 653.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 72.0
-margin_right = 1677.0
+margin_left = 88.0
+margin_right = 1661.0
 margin_bottom = 653.0
 size_flags_horizontal = 3
 
 [node name="TurnStatusLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_right = 1605.0
-margin_bottom = 20.0
+margin_right = 1573.0
+margin_bottom = 43.0
 text = "<TURN STATUS>"
 align = 1
 
 [node name="IncomingSpellsLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 28.0
-margin_right = 1605.0
-margin_bottom = 48.0
+visible = false
+margin_top = 51.0
+margin_right = 1573.0
+margin_bottom = 94.0
 align = 1
 
 [node name="AvailableSpellsLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
-margin_top = 56.0
-margin_right = 1605.0
-margin_bottom = 76.0
+visible = false
+margin_top = 51.0
+margin_right = 1573.0
+margin_bottom = 94.0
 align = 1
 
 [node name="CombatantStatus2" parent="HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 1685.0
+margin_left = 1669.0
 margin_right = 1749.0
 margin_bottom = 653.0
 Flipped = true
@@ -166,15 +168,24 @@ margin_right = 1047.0
 margin_bottom = 55.0
 text = "Oh right, better cast a spell!"
 
-[node name="RestartLevelButton" type="Button" parent="."]
-anchor_left = 0.016
-anchor_top = 0.019
-anchor_right = 0.063
-anchor_bottom = 0.056
-margin_left = -6.72
-margin_top = 1.48
-margin_right = 24.04
-margin_bottom = -5.48
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 665.0
+margin_bottom = 100.0
+custom_constants/separation = 100
+
+[node name="RestartLevelButton" type="Button" parent="HBoxContainer2"]
+margin_right = 213.0
+margin_bottom = 55.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Restart Level"
+
+[node name="EndTurnButton" type="Button" parent="HBoxContainer2"]
+margin_left = 313.0
+margin_right = 479.0
+margin_bottom = 55.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "End Turn"
