@@ -238,7 +238,7 @@ public class Default : Control
 
             if (sc.IsMouseHovering)
             {
-                SpellCardHeights[sc.Spell] = (-30 - SpellCardHeights[sc.Spell]) * 4 * delta;
+                SpellCardHeights[sc.Spell] += (-30 - SpellCardHeights[sc.Spell]) * 4 * delta;
             }
 
             GD.Print(SpellCardHeights[sc.Spell]);
