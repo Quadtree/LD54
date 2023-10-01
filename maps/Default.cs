@@ -56,7 +56,7 @@ public class Default : Control
 
     public List<Tuple<int, int, string, string>> SpellInFlightQueue = new List<Tuple<int, int, string, string>>();
 
-    public static int CurrentLevel = 5;
+    public static int CurrentLevel = 1;
 
     int? Loser;
     string DefeatTextHeadline = "";
@@ -148,14 +148,15 @@ public class Default : Control
 
         this.FindChildByName<Label>("AvailableSpellsLabel").Text = $"Available: {string.Join(", ", AvailableSpells.Select(it => $"{it.Item2.Name} ({it.Item1})"))}";
 
-        if (Loser == null && SpellInFlight == null && SpellInFlightQueue.Count == 0)
+        if (Loser == null)
         {
             for (var i = 0; i < 2; ++i)
             {
                 if (MS.Combatants[i].HP <= 0)
                 {
                     Loser = i;
-                    CS[i].FindChildByType<AnimationPlayer>().Play("Death");
+                    QueuedAnimation = "Death";
+                    //CS[i].FindChildByType<AnimationPlayer>().Play("Death");
 
                     break;
                 }
@@ -164,8 +165,14 @@ public class Default : Control
             if (MS.CurrentPhase == MatchState.Phase.Main && MS.SpellsCastSoFarThisTurn == 0 && AvailableSpells.Length == 0)
             {
                 Loser = MS.CurrentTurn;
-                CS[MS.CurrentTurn].FindChildByType<AnimationPlayer>().Play("Explode");
+                QueuedAnimation = "Explode";
+                //CS[MS.CurrentTurn].FindChildByType<AnimationPlayer>().Play("Explode");
             }
+        }
+
+        if (Loser != null && QueuedAnimation != null && SpellInFlight == null && SpellInFlightQueue.Count == 0)
+        {
+            CS[Loser.Value].FindChildByType<AnimationPlayer>().Play(QueuedAnimation);
         }
 
         if (Loser is int loserNotNull && CS[loserNotNull].FindChildByType<AnimationPlayer>().IsPlaying() == false && SpellInFlight == null && SpellInFlightQueue.Count == 0)
