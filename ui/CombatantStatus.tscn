@@ -292,24 +292,28 @@ margin_right = 448.0
 margin_bottom = 828.0
 script = ExtResource( 2 )
 
-[node name="HPLabel" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 448.0
-margin_bottom = 14.0
+margin_bottom = 43.0
+custom_constants/separation = 40
 
-[node name="MPLabel" type="Label" parent="."]
-margin_top = 18.0
-margin_right = 448.0
-margin_bottom = 32.0
+[node name="HPLabel" type="Label" parent="HBoxContainer"]
+margin_bottom = 43.0
 
-[node name="ShieldLabel" type="Label" parent="."]
-margin_top = 36.0
-margin_right = 448.0
-margin_bottom = 50.0
+[node name="MPLabel" type="Label" parent="HBoxContainer"]
+margin_left = 40.0
+margin_right = 40.0
+margin_bottom = 43.0
+
+[node name="ShieldLabel" type="Label" parent="HBoxContainer"]
+margin_left = 80.0
+margin_right = 80.0
+margin_bottom = 43.0
 
 [node name="Grid1" parent="." instance=ExtResource( 1 )]
-margin_top = 54.0
+margin_top = 51.0
 margin_right = 448.0
-margin_bottom = 118.0
+margin_bottom = 115.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 188, 762 )
