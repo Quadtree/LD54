@@ -156,6 +156,8 @@ public class Default : Control
                 {
                     Loser = i;
                     QueuedAnimation = "Death";
+                    if (i == 0) DefeatTextBody = "Better luck next time!";
+                    if (i == 1) DefeatTextBody = "Another victory in the Spellfire Tournament!";
                     //CS[i].FindChildByType<AnimationPlayer>().Play("Death");
 
                     break;
@@ -165,6 +167,10 @@ public class Default : Control
             if (MS.CurrentPhase == MatchState.Phase.Main && MS.SpellsCastSoFarThisTurn == 0 && AvailableSpells.Length == 0)
             {
                 Loser = MS.CurrentTurn;
+
+                if (Loser == 0) DefeatTextBody = "Looks like you shouldn't have skipped the class on Rune Grid Overloads in Magic 104.";
+                if (Loser == 1) DefeatTextBody = "So that's what happens when you overload your rune grid...";
+
                 QueuedAnimation = "Explode";
                 //CS[MS.CurrentTurn].FindChildByType<AnimationPlayer>().Play("Explode");
             }
