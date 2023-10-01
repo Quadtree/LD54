@@ -9,7 +9,7 @@ public class SpellCard : TextureRect
 
     public override void _Ready()
     {
-
+        this.Connect("gui_event", this, nameof(HandleEvent));
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,9 +38,14 @@ public class SpellCard : TextureRect
 
         if (@event is InputEventMouseMotion iem)
         {
-            GD.Print(@event);
+            //GD.Print(@event);
             LastMouseInPos = GetViewport().GetMousePosition();
         }
+    }
+
+    void HandleEvent(InputEvent @event)
+    {
+        GD.Print(@event);
     }
 
     public bool IsMouseHovering => LastMouseInPos == GetViewport().GetMousePosition();
