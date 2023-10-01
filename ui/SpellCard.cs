@@ -29,18 +29,18 @@ public class SpellCard : TextureRect
     {
         base._UnhandledInput(@event);
 
-        if (@event is InputEventMouse iem)
-        {
-            GD.Print(@event);
-            LastMouseInPos = GetViewport().GetMousePosition();
-        }
+
     }
 
     public override void _Input(InputEvent @event)
     {
         base._Input(@event);
 
-
+        if (@event is InputEventMouseMotion iem)
+        {
+            GD.Print(@event);
+            LastMouseInPos = GetViewport().GetMousePosition();
+        }
     }
 
     public bool IsMouseHovering => LastMouseInPos == GetViewport().GetMousePosition();
