@@ -115,7 +115,7 @@ public class Default : Control
                 if (MS.Combatants[i].HP <= 0)
                 {
                     Loser = i;
-                    CS[0].FindChildByType<AnimationPlayer>().Play("Death");
+                    CS[i].FindChildByType<AnimationPlayer>().Play("Death");
                     break;
                 }
             }
