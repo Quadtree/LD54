@@ -259,6 +259,8 @@ public class Default : Control
         }
 
         if (Input.IsMouseButtonPressed((int)ButtonList.Left)) this.FindChildByName<Label>("StartOfLevelTextLabel").Visible = false;
+
+        if (MS.CurrentPhase == MatchState.Phase.Reaction && MS.CurrentTurn == 1 && AvailableSpells.Length == 0) PlayerInitatedEndTurn();
     }
 
     public void ComputeAvailableSpells()
