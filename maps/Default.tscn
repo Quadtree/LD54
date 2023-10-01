@@ -86,19 +86,19 @@ margin_bottom = 56.0
 size_flags_horizontal = 4
 text = "Proceed"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="NotCastingSpellModal" type="VBoxContainer" parent="."]
 anchor_left = 0.35
 anchor_top = 0.337
 anchor_right = 0.65
 anchor_bottom = 0.641
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="NotCastingSpellModal"]
 margin_right = 576.0
 margin_bottom = 14.0
 text = "Are you sure?"
 align = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="NotCastingSpellModal"]
 margin_top = 18.0
 margin_right = 576.0
 margin_bottom = 49.0
@@ -106,13 +106,13 @@ text = "The archmages clearly stated that you have to cast at least one spell pe
 align = 1
 autowrap = true
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="NotCastingSpellModal"]
 margin_top = 53.0
 margin_right = 576.0
 margin_bottom = 83.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="NotCastingSpellModal"]
 margin_left = 56.0
 margin_top = 87.0
 margin_right = 519.0
@@ -121,18 +121,18 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="TryNotCastingSpellButton" type="Button" parent="NotCastingSpellModal/HBoxContainer"]
 margin_right = 244.0
 margin_bottom = 20.0
 text = "What's the worst that could happen?"
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="NotCastingSpellModal/HBoxContainer"]
 margin_left = 248.0
 margin_right = 268.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 0 )
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="CancelNotCastingSpellButton" type="Button" parent="NotCastingSpellModal/HBoxContainer"]
 margin_left = 272.0
 margin_right = 463.0
 margin_bottom = 20.0
