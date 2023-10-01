@@ -173,6 +173,7 @@ public class Default : Control
         if (Loser != null && QueuedAnimation != null && SpellInFlight == null && SpellInFlightQueue.Count == 0)
         {
             CS[Loser.Value].FindChildByType<AnimationPlayer>().Play(QueuedAnimation);
+            QueuedAnimation = null;
         }
 
         if (Loser is int loserNotNull && CS[loserNotNull].FindChildByType<AnimationPlayer>().IsPlaying() == false && SpellInFlight == null && SpellInFlightQueue.Count == 0)
@@ -198,6 +199,26 @@ public class Default : Control
                         GetTree().ChangeScene("res://maps/VictoryScreen.tscn");
                 }
             });
+        }
+
+        if (SpellInFlight != null)
+        {
+            var toPos = CS[SpellInFlightTargetId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
+            if (toPos.DistanceSquaredTo(SpellInFlight.GlobalPosition) < 60 * 60)
+            {
+                SpellInFlight.GetParent().RemoveChild(SpellInFlight);
+                SpellInFlight = null;
+            }
+            else
+                SpellInFlight.GlobalPosition += (toPos - SpellInFlight.GlobalPosition).Normalized() * 2000 * delta;
+        }
+        else
+        {
+            if (SpellInFlightQueue.Any())
+            {
+                DoAddSpellInFlight(SpellInFlightQueue[0].Item1, SpellInFlightQueue[0].Item2, SpellInFlightQueue[0].Item3, SpellInFlightQueue[0].Item4);
+                SpellInFlightQueue.RemoveAt(0);
+            }
         }
 
         // stop the player from doing anything if it's not their turn
@@ -248,26 +269,6 @@ public class Default : Control
                 {
                     CS[1].Grid1.HoveredCellsSource = () => SelectedSpell?.Footprint?.Select(it => Tuple.Create(it + curHoverNotNull, Grid1.HoverType.SpellBase))?.ToArray() ?? Array.Empty<Tuple<IntVec2, Grid1.HoverType>>();
                 }
-            }
-        }
-
-        if (SpellInFlight != null)
-        {
-            var toPos = CS[SpellInFlightTargetId].FindChildByName<Sprite>("Sprite2").GlobalPosition;
-            if (toPos.DistanceSquaredTo(SpellInFlight.GlobalPosition) < 60 * 60)
-            {
-                SpellInFlight.GetParent().RemoveChild(SpellInFlight);
-                SpellInFlight = null;
-            }
-            else
-                SpellInFlight.GlobalPosition += (toPos - SpellInFlight.GlobalPosition).Normalized() * 2000 * delta;
-        }
-        else
-        {
-            if (SpellInFlightQueue.Any())
-            {
-                DoAddSpellInFlight(SpellInFlightQueue[0].Item1, SpellInFlightQueue[0].Item2, SpellInFlightQueue[0].Item3, SpellInFlightQueue[0].Item4);
-                SpellInFlightQueue.RemoveAt(0);
             }
         }
 
