@@ -7,6 +7,7 @@ KnownSpells = [ 1, 5, 0, 4 ]
 EnemyHP = 12
 EnemySpells = [ 5, 1 ]
 EnemyMageRobeColor = Color( 1, 0.945098, 0, 1 )
+StartOfLevelText = "This enemy is notorious for using energize to lay down a hail of flame! Fortunately, you've now got the Shield spell, which you can cast during the Reaction phase before the enemy's spells actually hit. I'd recommend reserving some SP for this."
 
 [node name="TileMap" parent="." index="0"]
 tile_data = PoolIntArray( 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 262145, 1, 0, 262146, 1, 0, 327681, 1, 0, 327682, 1, 0 )

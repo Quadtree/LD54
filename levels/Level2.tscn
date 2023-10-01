@@ -6,6 +6,7 @@
 KnownSpells = [ 1, 5, 0 ]
 EnemyHP = 18
 EnemyMageRobeColor = Color( 1, 0, 0, 1 )
+StartOfLevelText = "Now you've got a more worthy adversary, but you've also got Flame Lance! It takes up more space, but it packs a punch!"
 
 [node name="TileMap" parent="." index="0"]
 tile_data = PoolIntArray( 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 262145, 1, 0, 262146, 1, 0, 327681, 1, 0, 327682, 1, 0 )

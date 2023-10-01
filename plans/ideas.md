@@ -26,6 +26,13 @@ All spells have some potential traits like:
 5. Enemy has long and thin area. Introduce counterspelling
 6. Enemy has big square area. All spells available
 
+1. Welcome to the Spellfire Tournament! Your first opponent looks pretty easy. Just click on Burning Bolt, and click in the rune grid on the left to cast it! Then press end turn. Keep it up and you'll probably win eventually.
+2. Now you've got a more worthy adversary, but you've also got Flame Lance! It takes up more space, but it packs a punch!
+3. This enemy is notorious for using energize to lay down a hail of flame! Fortunately, you've now got the Shield spell, which you can cast during the Reaction phase before the enemy's spells actually hit. I'd recommend reserving some SP for this.
+4. This enemy also loves the Energize spell, but you've got another secret weapon: Feedback. Cast it on your side when the matching cells on the other side are full.
+5. This enemy particularly prefers Flame Lance. You have a new spell, Counterspell, which you can use during your reaction phase. Use it to cause the Flame Lances to fizzle!
+6. This enemy is just generally tough. You'll need to go all out to win!
+
 ## Problems
 - Matches may turn into pathetic-matches where nobody can deal damage. What will cause it to end?
   - Possible solution: Just have it be points-based instead of actually reducing your opponent's health to zero
