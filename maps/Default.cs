@@ -61,6 +61,8 @@ public class Default : Control
     string DefeatTextHeadline = "";
     string DefeatTextBody = "";
 
+    Dictionary<Spell, float> SpellCardHeights = new Dictionary<Spell, float>();
+
     public override void _Ready()
     {
         this.FindChildByName<Control>("Modal").FindChildByType<Button>().Connect("pressed", this, nameof(OnModalProceedPressed));
@@ -227,6 +229,14 @@ public class Default : Control
             {
                 DoAddSpellInFlight(SpellInFlightQueue[0].Item1, SpellInFlightQueue[0].Item2, SpellInFlightQueue[0].Item3);
                 SpellInFlightQueue.RemoveAt(0);
+            }
+        }
+
+        foreach (var sc in this.FindChildrenByType<SpellCard>())
+        {
+            if (sc.IsMouseHovering)
+            {
+                GD.Print("X");
             }
         }
     }

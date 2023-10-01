@@ -5,6 +5,8 @@ public class SpellCard : TextureRect
 {
     public Spell Spell;
 
+    Vector2 LastMouseInPos;
+
     public override void _Ready()
     {
 
@@ -22,4 +24,24 @@ public class SpellCard : TextureRect
             this.FindChildByName<Label>("InstantLabel").Visible = spell.IsInstant;
         }
     }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        base._UnhandledInput(@event);
+
+        if (@event is InputEventMouse iem)
+        {
+            GD.Print(@event);
+            LastMouseInPos = GetViewport().GetMousePosition();
+        }
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        base._Input(@event);
+
+
+    }
+
+    public bool IsMouseHovering => LastMouseInPos == GetViewport().GetMousePosition();
 }
