@@ -61,6 +61,8 @@ public class Default : Control
 
     public override void _Ready()
     {
+        this.FindChildByName<Control>("Modal").FindChildByType<Button>().Connect("pressed", this, nameof(OnModalProceedPressed));
+
         var c1 = this.FindChildByName<CombatantStatus>("CombatantStatus");
         var c2 = this.FindChildByName<CombatantStatus>("CombatantStatus2");
         c1.Src = () => MS.Combatants[0];
@@ -272,5 +274,20 @@ public class Default : Control
         SpellInFlight.LookAt(toPos);
         SpellInFlight.Texture = GD.Load<Texture>(texture);
         SpellInFlightTargetId = toId;
+    }
+
+    Action ModalProceedPressed;
+
+    public void ShowModal(string headline, string body, Action proceed)
+    {
+        var modal = this.FindChildByName<Control>("Modal");
+        modal.FindChildByName<Label>("Headline").Text = headline;
+        modal.FindChildByName<Label>("Body").Text = body;
+        ModalProceedPressed = proceed;
+    }
+
+    void OnModalProceedPressed()
+    {
+        ModalProceedPressed?.Invoke();
     }
 }
